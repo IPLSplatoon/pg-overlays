@@ -1,0 +1,33 @@
+{
+  "name": "pg-overlays",
+  "version": "0.0.0",
+  "description": "Graphics for the Proving Grounds livestream",
+  "homepage": "iplabs.ink",
+  "author": {
+    "name": ".jpg",
+    "email": "jpg@iplabs.ink",
+    "url": "iplabs.ink"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "graphics": [
+      {
+        "file": "main.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "private": true
+}
