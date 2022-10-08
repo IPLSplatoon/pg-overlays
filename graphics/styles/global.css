@@ -1,0 +1,14 @@
+:root {
+    --off-white: #FBFBFB;
+    --lavender: #EAE4F7;
+    --purple: #7D30F0;
+    --indigo: #3E0099;
+    --yellow: #FFE80A;
+}
+
+body{
+    outline: 2px solid black;
+    width: 1920px;
+    height: 1080px;
+    margin: 0;
+}

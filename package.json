@@ -25,9 +25,18 @@
         "file": "main.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "break.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },
   "repository": "https://github.com/nodecg/nodecg.git",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "fitted-text": "^2.0.5",
+    "gsap": "^3.11.3"
+  }
 }

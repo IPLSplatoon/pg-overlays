@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/break.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script defer src="scripts/break/break.js" type="module"></script>
+    <script defer src="../node_modules/fitted-text/dist/fitted-text.js"></script>
+</head>
+
+<body>
+    <div class="background"></div>
+	<div class="break-wrapper" style="display: none;">
+        <img class="logo" src="./assets/logo.png">
+        <div class="content-box break-info-box">
+            <fitted-text class="flavor-text" max-width="500" text="Be right back!"></fitted-text>
+            <div class="info-scrollable">
+                <div class="info-scrollable-wrapper">
+                    <fitted-text max-width="160" text="Caster A"></fitted-text>
+                    <fitted-text max-width="160" text="Caster B"></fitted-text>
+                    <fitted-text max-width="160" text="Caster C"></fitted-text>
+                </div>
+                <div class="info-scrollable-wrapper">
+                    <fitted-text max-width="160" text="@CasterA"></fitted-text>
+                    <fitted-text max-width="160" text="@CasterB"></fitted-text>
+                    <fitted-text max-width="160" text="@CasterC"></fitted-text>
+                </div>
+                <div class="info-scrollable-wrapper" id="info-scrollable-music-wrapper">
+                    <fitted-text max-width="500" text="Artist - Title"></fitted-text>
+                </div>
+            </div>
+        </div>
+        <div class="content-box next-game-wrapper">
+            <div class="next">Next:</div>
+            <div class="next-teams">Team A vs Team B</div>
+            <div class="next-game-stages">
+                <div class="stage">SZ</div>
+                <div class="stage">TC</div>
+                <div class="stage">RM</div>
+                <div class="stage cap">+2</div>
+                <div class="timer">In ~5 minutes</div>
+            </div>
+        </div>
+        <img src="./assets/ipl-powered.svg" style="position: absolute; top: 1012px; height: 60px;">
+    </div>
+
+    <div class="game-wrapper">
+        <div class="team-content-wrapper" style="visibility: none;">
+            <div class="content-box team-card">
+                <div class="header">
+                    <img src="assets/logo.png">
+                    <div class="name">Team A</div>
+                </div>
+                <div class="roster right">
+                    <div>Player 1</div>
+                    <div>Player 2</div>
+                    <div>Player 3</div>
+                    <div>Player 4</div>
+                </div>
+            </div>
+            <div class="content-box score">0</div>
+            <div class="content-box score">0</div>
+            <div class="content-box team-card">
+                <div class="header">
+                    <div class="name">Team B</div>
+                    <img src="assets/logo.png">
+                </div>
+                <div class="roster">
+                    <div>Player 1</div>
+                    <div>Player 2</div>
+                    <div>Player 3</div>
+                    <div>Player 4</div>
+                    <div>Player 5</div>
+                    <div>Player 6</div>
+                    <div>Player 7</div>
+                    <div>Player 8</div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="stages-wrapper" style="visibility: hidden;">
+            <div class="content-box stage finished">
+                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
+                <div class="winner">Test</div>
+                <div class="info">
+                    <div class="mode">Splat Zones</div>
+                    <div class="map">Eeltail Alley</div>
+                </div>
+            </div>
+            <div class="content-box stage next">
+                <img src="assets/stages/S3_Stage_Mincemeat_Metalworks.png">
+                <div class="winner"></div>
+                <div class="info">
+                    <div class="mode">Tower Control</div>
+                    <div class="map">Mincemeat Metalworks</div>
+                </div>
+            </div>
+            <div class="content-box stage">
+                <img src="assets/stages/S3_Stage_Inkblot_Art_Academy.jpg">
+                <div class="info">
+                    <div class="mode">Rainmaker</div>
+                    <div class="map">Inkblot Art Academy</div>
+                </div>
+            </div>
+            <div class="content-box stage">
+                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
+                <div class="info">
+                    <div class="mode">Splat Zones</div>
+                    <div class="map">Eeltail Alley</div>
+                </div>
+            </div>
+            <div class="content-box stage">
+                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
+                <div class="info">
+                    <div class="mode">Splat Zones</div>
+                    <div class="map">Eeltail Alley</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar content-box">
+        <img class="icon" src="./assets/icon.png">
+        <div id="bottom-wrapper-content">
+            <div class="bottom-bar-wrapper">
+                <fitted-text max-width="500" text="Caster A"></fitted-text>
+                <fitted-text max-width="500" text="Caster B"></fitted-text>
+                <fitted-text max-width="500" text="Caster C"></fitted-text>
+            </div>
+            <div class="bottom-bar-wrapper">
+                <fitted-text max-width="500" text="@CasterA"></fitted-text>
+                <fitted-text max-width="500" text="@CasterB"></fitted-text>
+                <fitted-text max-width="500" text="@CasterC"></fitted-text>
+            </div>
+            <div class="bottom-bar-wrapper" style="display: none;" id="bottom-bar-music-wrapper">
+                <fitted-text max-width="1000" text="Artist - Title"></fitted-text>
+            </div>
+        </div>
+    </div>
+
+</body>

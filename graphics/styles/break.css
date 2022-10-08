@@ -1,0 +1,313 @@
+:root{
+    --drop-shadow: -15px 15px 0px var(--indigo);
+    
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+}
+
+.background {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    z-index: -10;
+    background: url("../assets/grid_texture.png") var(--lavender);
+}
+
+.content-box {
+    background: var(--off-white);
+    filter: drop-shadow(var(--drop-shadow));
+    outline: 4px solid var(--indigo);
+}
+
+.break-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1080px;
+    width: 1100px;
+    margin: auto;
+}
+
+.break-wrapper > .logo {
+    width: 738px;
+    height: auto;
+    filter: drop-shadow(-16px 16px 0px rgba(62, 0, 153, 0.08));
+    margin-bottom: 90px;
+}
+
+.break-wrapper > .break-info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(1100px - 40px);
+    padding: 20px;
+    margin-bottom: 70px;
+}
+
+.break-wrapper > .break-info-box > .flavor-text {
+    font-weight: 700;
+    color: var(--indigo);
+}
+
+.break-wrapper > .break-info-box > .info-scrollable {
+    font-size: 32px;
+    color: var(--purple);
+}
+
+.break-wrapper > .next-game-wrapper {
+    display: grid;
+    grid-template-columns: 152px 1fr;
+    grid-template-rows: 78px 1fr;
+    width: 1100px;
+    height: 202px;
+}
+
+.break-wrapper > .next-game-wrapper > .next {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--purple);
+    color: white;
+    font-weight: 700;
+}
+
+.break-wrapper > .next-game-wrapper > .next-teams {
+    color: var(--indigo);
+    padding: 15px;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    padding-top: 5px;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages > div:not(:first-child) {
+    margin-left: 12px;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages > .stage {
+    font-size: 32px;
+    width: 169px;
+    height: 100%;
+    background: var(--purple);
+    border: 3px solid var(--indigo);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    color: white;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages > .cap {
+    width: 50px;
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages > .timer {
+    font-size: 36px;
+    width: 230px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--purple);
+}
+
+.info-scrollable-wrapper {
+    display: flex;
+}
+
+.info-scrollable-wrapper > *:not(:last-child) {
+    margin-right: 1ch;
+}
+
+
+.game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.game-wrapper > .team-content-wrapper {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 1400px;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card {
+    width: 490px;
+    height: 575px;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 114px;
+    background: var(--purple);
+    border-bottom: 4px solid var(--indigo);
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .header > img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .header > .name {
+    color: white;
+    font-weight: 700;
+    padding: 12px;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .roster {
+    font-size: 36px;
+    height: 459px;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .right {
+    align-items: flex-end;
+}
+
+.game-wrapper > .team-content-wrapper > .team-card > .roster > div {
+    height: 52px;
+    color: var(--indigo);
+}
+
+.game-wrapper > .team-content-wrapper > .score {
+    width: 112px;
+    height: 100px;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 84px;
+    font-weight: 700;
+    color: var(--purple);
+}
+
+
+.game-wrapper > .stages-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 1400px;
+}
+
+.game-wrapper > .stages-wrapper > .stage {
+    width: 245px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-wrapper > .stages-wrapper > .stage > .winner{
+    position: absolute;
+    width: calc(100% - 24px);
+    padding: 12px;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--indigo);
+}
+
+.game-wrapper > .stages-wrapper > .stage > img{
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    filter: contrast(.8) brightness(1.2) saturate(.9);
+}
+
+.game-wrapper > .stages-wrapper > .stage > .info {
+    height: calc(600px - 430px);
+    background: var(--off-white);
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 4px solid var(--indigo);
+}
+
+.game-wrapper > .stages-wrapper > .stage > .info > .mode {
+    font-size: 32px;
+    color: var(--purple);
+}
+
+.game-wrapper > .stages-wrapper > .stage > .info > .map {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--indigo);
+}
+
+.game-wrapper > .stages-wrapper > .finished > img {
+    filter: saturate(.25) contrast(.25) brightness(1.75);
+}
+
+.game-wrapper > .stages-wrapper > .next {
+    height: 650px;
+}
+
+.game-wrapper > .stages-wrapper > .next > img {
+    height: 455px;
+}   
+
+.game-wrapper > .stages-wrapper > .next > .info {
+    height: calc(650px - 455px);
+    background: var(--purple);
+}
+
+.game-wrapper > .stages-wrapper > .next > .info > .mode{
+    color: white;
+}
+
+.game-wrapper > .stages-wrapper > .next > .info > .map{
+    color: white;
+}
+
+
+.bottom-bar {
+    z-index: 10;
+    width: 1400px;
+    height: 90px;
+    position: absolute;
+    top: 960px;
+    left: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--indigo);
+}
+
+.bottom-bar > .icon {
+    position: absolute;
+    left: 0;
+    height: 70px;
+    width: 70px;
+    background: var(--yellow);
+    padding: 10px;
+    outline: 4px solid var(--indigo);
+}
+
+.bottom-bar-wrapper {
+    display: flex;
+    font-size: 40px;
+}
+
+.bottom-bar-wrapper > *:not(:first-child){
+    margin-left: 1.2ch;
+}
