@@ -68,7 +68,7 @@ function showScoreboard(show){
             ease: "power4.out",
             display: "block"
         })
-        .fromTo(".logo", {
+        .fromTo([".logo", ".info-bar"], {
             opacity: 0
         }, {
             opacity: 1,
@@ -90,7 +90,7 @@ function showScoreboard(show){
             duration: 1,
             ease: "power4.out",
             display: "flex"
-        }, "<+=.15");
+        }, "<+=.1");
     } else {
 
         tl.to(".teams-box", {
