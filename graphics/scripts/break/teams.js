@@ -4,8 +4,6 @@ import gsap from '../../../node_modules/gsap/all.js';
 
 NodeCG.waitForReplicants(activeRound).then(() => {
     activeRound.on("change", (newValue, oldValue) => {
-        console.log(newValue);
-
         if (oldValue === undefined){
             setTeamName(newValue.teamA.name, 'a');
             setTeamName(newValue.teamB.name, 'b');
@@ -95,22 +93,28 @@ function setTeamImage(url, team){
     const elim = document.getElementById(`team-${team}-image`);
     const tl = gsap.timeline();
 
+    function fadeIn(elim){
+        tl.to(elim, {
+            opacity: 1,
+            ease: "power4.out",
+            duration: .5
+        })
+    }
+
     tl.to(elim, {
         opacity: 0,
         duration: .5,
-        ease: "power4.out",
+        ease: "power4.in",
         onComplete: function(){
             if (url == '' || url === undefined || url == null){
                 elim.style.visibility = "hidden";
             } else {
                 elim.style.visibility = "visible";
                 elim.setAttribute("src", url);
+                elim.addEventListener("load", function(){
+                    fadeIn(elim);
+                })
             }
         }
-    })
-    .to(elim, {
-        opacity: 1,
-        duration: .5,
-        ease: "power4.in",
     });
 }
