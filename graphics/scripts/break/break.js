@@ -4,5 +4,6 @@ import './teams.js'
 import './score.js'
 import './stages.js'
 import './casters.js'
+import './music.js'
 
 animInit();
