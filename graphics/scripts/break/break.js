@@ -3,5 +3,6 @@ import './sceneswitcher.js'
 import './teams.js'
 import './score.js'
 import './stages.js'
+import './casters.js'
 
 animInit();

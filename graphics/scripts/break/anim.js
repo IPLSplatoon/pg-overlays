@@ -77,16 +77,16 @@ function animInfoScrollable(){
             tl.fromTo(elements[i],{
                 display: "none",
                 opacity: 0,
-                y: 15
+                x: 30
             }, {
                 display: "flex",
                 opacity: 1,
-                y: 0,
+                x: 0,
                 ease: "power4.out",
                 duration: .3
             })
             .to(elements[i], {
-                y: -15,
+                x: -30,
                 opacity: 0,
                 display: "none",
                 ease: "power4.in",

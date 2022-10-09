@@ -12,3 +12,19 @@ body{
     height: 1080px;
     margin: 0;
 }
+
+.pronouns {
+    background: var(--indigo);
+    color: white;
+    font-size: .5em;
+    padding: .05em .18em;
+    width: fit-content;
+    margin-left: .65em;
+    transform: scaleX(.9) translateY(.08em);
+    transform-origin: left;
+}
+
+.caster-wrapper {
+    display: flex;
+    align-items: center;
+}

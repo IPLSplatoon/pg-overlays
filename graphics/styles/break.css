@@ -30,20 +30,23 @@
     margin: auto;
 }
 
+.break-wrapper > .content-box:not(:last-child){
+    margin-bottom: 50px;
+}
+
 .break-wrapper > .logo {
     width: 738px;
     height: auto;
     filter: drop-shadow(-16px 16px 0px rgba(62, 0, 153, 0.08));
-    margin-bottom: 90px;
+    margin-bottom: 50px;
 }
 
 .break-wrapper > .break-info-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: calc(1100px - 40px);
-    padding: 20px;
-    margin-bottom: 70px;
+    padding: 10px 20px;
 }
 
 .break-wrapper > .break-info-box > .flavor-text {
@@ -53,7 +56,7 @@
 
 .break-wrapper > .break-info-box > .info-scrollable {
     font-size: 32px;
-    color: var(--purple);
+    color: var(--indigo);
 }
 
 .break-wrapper > .next-game-wrapper {
@@ -121,10 +124,26 @@
 
 .info-scrollable-wrapper {
     display: flex;
+    align-items: center;
 }
 
-.info-scrollable-wrapper > *:not(:last-child) {
-    margin-right: 1ch;
+.info-scrollable-wrapper > img {
+    height: 32px;
+    width: auto;
+}
+
+.info-scrollable-wrapper > * {
+    margin: 0 .5ch;
+}
+
+.info-scrollable-wrapper > .icon-pair {
+    display: flex;
+    align-items: center;
+}
+
+.info-scrollable-wrapper > .icon-pair > img {
+    height: 32px;
+    margin-right: 8px;
 }
 
 
@@ -317,9 +336,14 @@
 
 .bottom-bar-wrapper {
     display: flex;
+    align-items: center;
     font-size: 40px;
 }
 
 .bottom-bar-wrapper > *:not(:first-child){
     margin-left: 1.2ch;
+}
+
+.bottom-bar-wrapper > img {
+    height: 36px;
 }

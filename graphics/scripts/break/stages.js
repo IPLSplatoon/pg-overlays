@@ -80,7 +80,6 @@ function updateScores(round){
             continue;
         }
         const winnerElim = stageElims[i].querySelector(".winner");
-        console.log(winnerElim);
 
         stageElims[i].classList.remove("next");
 

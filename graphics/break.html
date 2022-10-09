@@ -14,22 +14,7 @@
 	<div class="break-wrapper" style="display: none;">
         <img class="logo" src="./assets/logo.png">
         <div class="content-box break-info-box">
-            <fitted-text class="flavor-text" max-width="500" text="Be right back!"></fitted-text>
-            <div class="info-scrollable">
-                <div class="info-scrollable-wrapper">
-                    <fitted-text max-width="160" text="Caster A"></fitted-text>
-                    <fitted-text max-width="160" text="Caster B"></fitted-text>
-                    <fitted-text max-width="160" text="Caster C"></fitted-text>
-                </div>
-                <div class="info-scrollable-wrapper">
-                    <fitted-text max-width="160" text="@CasterA"></fitted-text>
-                    <fitted-text max-width="160" text="@CasterB"></fitted-text>
-                    <fitted-text max-width="160" text="@CasterC"></fitted-text>
-                </div>
-                <div class="info-scrollable-wrapper" id="info-scrollable-music-wrapper">
-                    <fitted-text max-width="500" text="Artist - Title"></fitted-text>
-                </div>
-            </div>
+            <fitted-text class="flavor-text" max-width="500" text="Be right back!" align="center"></fitted-text>
         </div>
         <div class="content-box next-game-wrapper">
             <div class="next">Next:</div>
@@ -42,7 +27,46 @@
                 <div class="timer">In ~5 minutes</div>
             </div>
         </div>
-        <img src="./assets/ipl-powered.svg" style="position: absolute; top: 1012px; height: 60px;">
+        <div class="content-box break-info-box" style="height: 60px;">
+            <div class="info-scrollable">
+                <!-- <div class="info-scrollable-wrapper" style="width: 1050px; justify-content: space-around;">
+                    <img src="./assets/ipl-powered.svg" style="height: 55px;">
+                    <div class="icon-pair">
+                        <img src="./assets/icons/twitter.svg">
+                        <fitted-text max-width="300" text="IPLSplatoon"></fitted-text>
+                    </div>
+                    <div class="icon-pair">
+                        <img src="./assets/icons/discord.svg">
+                        <fitted-text max-width="300" text="iplabs.ink/discord"></fitted-text>
+                    </div>
+                </div> -->
+                <div class="info-scrollable-wrapper">
+                    <img src="./assets/icons/mic.svg">
+                    <div class="caster-wrapper" id="caster-1-main-wrapper">
+                        <fitted-text max-width="260" text="" id="caster-1-main-name"></fitted-text>
+                        <div class="pronouns" id="caster-1-main-pronouns"></div>
+                    </div>
+                    <div class="caster-wrapper" id="caster-2-main-wrapper">
+                        <fitted-text max-width="260" text="" id="caster-2-main-name"></fitted-text>
+                        <div class="pronouns" id="caster-2-main-pronouns"></div>
+                    </div>
+                    <div class="caster-wrapper" id="caster-3-main-wrapper">
+                        <fitted-text max-width="260" text="" id="caster-3-main-name"></fitted-text>
+                        <div class="pronouns" id="caster-3-main-pronouns"></div>
+                    </div>
+                </div>
+                <div class="info-scrollable-wrapper">
+                    <img src="./assets/icons/twitter.svg">
+                    <fitted-text max-width="260" text="" id="caster-1-main-twitter"></fitted-text>
+                    <fitted-text max-width="260" text="" id="caster-2-main-twitter"></fitted-text>
+                    <fitted-text max-width="260" text="" id="caster-3-main-twitter"></fitted-text>
+                </div>
+                <div class="info-scrollable-wrapper" id="info-scrollable-music-wrapper">
+                    <img src="./assets/icons/music.svg">
+                    <fitted-text max-width="900" text="Artist - Title"></fitted-text>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="game-wrapper">
@@ -55,8 +79,8 @@
                 <div class="roster right" id="team-a-roster">
                 </div>
             </div>
-            <div class="content-box score" id="team-a-score">0</div>
-            <div class="content-box score" id="team-b-score">0</div>
+            <div class="content-box score" id="team-a-score" style="margin-right: 30px;">0</div>
+            <div class="content-box score" id="team-b-score" style="margin-left: 30px;">0</div>
             <div class="content-box team-card">
                 <div class="header">
                     <fitted-text class="name" id="team-b-name" max-width="350"></fitted-text>
@@ -76,16 +100,28 @@
         <img class="icon" src="./assets/icon.png">
         <div id="bottom-wrapper-content">
             <div class="bottom-bar-wrapper">
-                <fitted-text max-width="500" text="Caster A"></fitted-text>
-                <fitted-text max-width="500" text="Caster B"></fitted-text>
-                <fitted-text max-width="500" text="Caster C"></fitted-text>
+                <img src="./assets/icons/mic.svg">
+                <div class="caster-wrapper" id="caster-1-bottom-wrapper">
+                    <fitted-text max-width="260" text="" id="caster-1-bottom-name"></fitted-text>
+                    <div class="pronouns" id="caster-1-bottom-pronouns"></div>
+                </div>
+                <div class="caster-wrapper" id="caster-2-bottom-wrapper">
+                    <fitted-text max-width="260" text="" id="caster-2-bottom-name"></fitted-text>
+                    <div class="pronouns" id="caster-2-bottom-pronouns"></div>
+                </div>
+                <div class="caster-wrapper" id="caster-3-bottom-wrapper">
+                    <fitted-text max-width="260" text="" id="caster-3-bottom-name"></fitted-text>
+                    <div class="pronouns" id="caster-3-bottom-pronouns"></div>
+                </div>
             </div>
             <div class="bottom-bar-wrapper">
-                <fitted-text max-width="500" text="@CasterA"></fitted-text>
-                <fitted-text max-width="500" text="@CasterB"></fitted-text>
-                <fitted-text max-width="500" text="@CasterC"></fitted-text>
+                <img src="./assets/icons/twitter.svg">
+                <fitted-text max-width="260" text="" id="caster-1-bottom-twitter"></fitted-text>
+                <fitted-text max-width="260" text="" id="caster-2-bottom-twitter"></fitted-text>
+                <fitted-text max-width="260" text="" id="caster-3-bottom-twitter"></fitted-text>
             </div>
             <div class="bottom-bar-wrapper" style="display: none;" id="bottom-bar-music-wrapper">
+                <img src="./assets/icons/music.svg">
                 <fitted-text max-width="1000" text="Artist - Title"></fitted-text>
             </div>
         </div>
