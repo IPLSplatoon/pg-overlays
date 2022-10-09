@@ -1,8 +1,66 @@
 <!DOCTYPE html>
 <head>
-
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script defer src="scripts/main/main.js" type="module"></script>
+    <script defer src="../node_modules/fitted-text/dist/fitted-text.js"></script>
 </head>
 
 <body>
-	
+	<div class="scoreboard-wrapper">
+        <div class="teams-box">
+            <div class="team">
+                <fitted-text class="name" max-width="235" text="" id="team-a-name"></fitted-text>
+                <div class="score-wrapper" id="score-wrapper-a">
+                    <div class="score" id="team-a-score">1</div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="team">
+                <fitted-text class="name" max-width="235" text="Team B" id="team-b-name"></fitted-text>
+                <div class="score-wrapper" id="score-wrapper-b">
+                    <div class="score" id="team-b-score">2</div>
+                </div>
+            </div>
+        </div>
+        <div class="info-bar">
+            <img class="logo" src="./assets/icon.png">
+            <div class="flavor-text-wrapper">
+                <fitted-text class="flavor-text" text="Proving Grounds" max-width="240" id="flavor-text"></fitted-text>
+            </div>
+            
+        </div>
+    </div>
+    <div class="casters-wrapper" id="casters-wrapper" style="opacity: 0;">
+        <div class="header">
+            <img src="./assets/icons/mic-light.svg">
+            <div>Commentators</div>
+        </div>
+        <div class="casters-body">
+            <div class="caster" id="caster-a-wrapper">
+                <div class="caster-name-wrapper">
+                    <fitted-text class="name" max-width="275" id="caster-a-name" text="Caster A"></fitted-text>
+                    <div class="pronouns" id="caster-a-pronouns">he/him</div>
+                </div>
+                <fitted-text class="twitter" max-width="275" id="caster-a-twitter" text="@CasterA"></fitted-text>
+            </div>
+            <div class="caster" id="caster-b-wrapper">
+                <div class="caster-name-wrapper">
+                    <fitted-text class="name" max-width="275" id="caster-b-name" text="Caster B"></fitted-text>
+                    <div class="pronouns" id="caster-b-pronouns">he/him</div>
+                </div>
+                <fitted-text class="twitter" max-width="275" id="caster-b-twitter" text="@CasterB"></fitted-text>
+            </div>
+            <div class="caster" id="caster-c-wrapper">
+                <div class="caster-name-wrapper">
+                    <fitted-text class="name" max-width="275" id="caster-c-name" text="Caster C"></fitted-text>
+                    <div class="pronouns" id="caster-c-pronouns">he/him</div>
+                </div>
+                <fitted-text class="twitter" max-width="275" id="caster-c-twitter" text="@CasterC"></fitted-text>
+            </div>
+        </div>
+    </div>
 </body>

@@ -1,0 +1,165 @@
+:root{
+    font-family: 'Raleway', sans-serif;
+}
+
+body{
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+    outline: none;
+}
+
+.scoreboard-wrapper {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.teams-box {
+    width: 305px;
+    height: 110px;
+    box-shadow: -7px 4px 0px var(--indigo);
+    border: 3px solid var(--indigo);
+    background: var(--off-white);
+}
+
+.team {
+    height: 53.5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.team > .name {
+    width: 240px;
+    padding: 0 8px;
+    font-size: 32px;
+    color: var(--indigo);
+    overflow: hidden;
+}
+
+.team > .score-wrapper {
+    width: 53.5px;
+    height: 53.5px;
+    background: var(--purple);
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.team > .score-wrapper > .score {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.divider {
+    width: 100%;
+    height: 3px;
+    background: var(--indigo);
+}
+
+.info-bar {
+    margin-top: 12px;
+    margin-left: calc(305px - 290px);
+    width: 290px;
+    height: 32px;
+    background: var(--off-white);
+    border: 3px solid var(--indigo);
+    box-shadow: -10px 4px 0px var(--indigo);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.info-bar > .logo {
+    position: absolute;
+    height: 57px;
+    top: 116px;
+    left: -12px;
+    filter: drop-shadow(-3px 2px 0px var(--indigo));
+    
+}
+
+.info-bar > .flavor-text-wrapper {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35px;
+    overflow: hidden;
+}
+
+.info-bar > .flavor-text-wrapper > .flavor-text{
+    font-size: 18px;
+    color: var(--indigo);
+    overflow: hidden;
+}
+
+
+
+.casters-wrapper {
+    position: absolute;
+    top: 250px;
+    left: 30px;
+    width: 305px;
+    border: 3px solid var(--indigo);
+    background: var(--off-white);
+    box-shadow: -10px 4px 0px var(--indigo);
+    overflow: hidden;
+}
+
+.casters-wrapper > .header {
+    height: 65px;
+    background: var(--purple);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.casters-wrapper > .header > img {
+    height: 35px;
+}
+
+.casters-wrapper > .header > div {
+    font-size: 32px;
+    margin-left: .65ch;
+    font-weight: 700;
+}
+
+.casters-body {
+    overflow: hidden;
+    padding: 4px 0;
+}
+
+.caster {
+    padding: 0 12px;
+    margin: 8px 0;
+}
+
+.caster > .caster-name-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.8em;
+}
+
+.caster > .caster-name-wrapper > .name{
+    font-size: 1em;
+    margin-right: .45ch;
+    color: var(--indigo);
+}
+
+.caster > .twitter {
+    color: var(--purple);
+    font-size: 22px;
+}
+
+.pronouns {
+    margin: 0
+}
