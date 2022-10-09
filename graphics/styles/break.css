@@ -76,6 +76,7 @@
     background: var(--purple);
     color: white;
     font-weight: 700;
+    border-right: 3px solid var(--indigo);
 }
 
 .break-wrapper > .next-game-wrapper > .next-teams {

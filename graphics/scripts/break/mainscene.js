@@ -3,14 +3,6 @@ import { mainFlavorText, nextRoundTime, nextRound } from '../helpers/replicants.
 import { addDots } from '../helpers/misc.js';
 import { mapNameToImagePath } from "../helpers/constants.js";
 
-nextRoundTime.on('change', (newValue, oldValue) => {
-    if (oldValue === undefined || newValue.isVisible !== oldValue.isVisible){
-        toggleTimer(newValue.isVisible);
-    } else if (newValue.startTime !== oldValue.startTime){
-        updateTimer();
-    }
-});
-
 mainFlavorText.on('change', newValue => {
     changeMainFlavorText(newValue)
 });
@@ -26,7 +18,15 @@ nextRound.on('change', (newValue, oldValue) => {
 });
 
 NodeCG.waitForReplicants(nextRoundTime).then(() => {
-    updateTimer();
+    nextRoundTime.on('change', (newValue, oldValue) => {
+        if (oldValue === undefined || newValue.isVisible !== oldValue.isVisible){
+            toggleTimer(newValue.isVisible);
+        } else if (newValue.startTime !== oldValue.startTime){
+            updateTimer();
+        }
+    });    
+
+    updateTimer(nextRoundTime.value);
     setInterval(updateTimer, 15000); //every 15 seconds
 });
 
@@ -58,20 +58,24 @@ function updateTimer(){
     }
 
     if (currentText !== text){
-        const tl = gsap.timeline();
-        tl.to(timerText, {
-            opacity: 0,
-            duration: .25,
-            ease: "power4.out",
-            onComplete: function(){
-                timerText.setAttribute("text", text);
-            }
-        })
-        .to(timerText, {
-            opacity: 1,
-            duration: .25,
-            ease: "power4.in"
-        });
+        if (nextRoundTime.value.isVisible){
+            const tl = gsap.timeline();
+            tl.to(timerText, {
+                opacity: 0,
+                duration: .25,
+                ease: "power4.out",
+                onComplete: function(){
+                    timerText.setAttribute("text", text);
+                }
+            })
+            .to(timerText, {
+                opacity: 1,
+                duration: .25,
+                ease: "power4.in"
+            });
+        } else {
+            timerText.setAttribute("text", text);
+        }
     }
 }
 
