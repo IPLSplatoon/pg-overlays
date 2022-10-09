@@ -90,20 +90,31 @@
     padding-top: 5px;
 }
 
-.break-wrapper > .next-game-wrapper > .next-game-stages > div:not(:first-child) {
+.break-wrapper > .next-game-wrapper > .next-game-stages > *:not(:first-child) {
     margin-left: 12px;
 }
 
 .break-wrapper > .next-game-wrapper > .next-game-stages > .stage {
     font-size: 32px;
-    width: 169px;
-    height: 100%;
-    background: var(--purple);
+    width: 180px;
+    height: 110px;
     border: 3px solid var(--indigo);
     display: flex;
     align-items: center;
-    padding: 4px;
+    justify-content: flex-start;
     color: white;
+    background-size: 150% !important;
+    background-position: 0% !important;
+}
+
+.break-wrapper > .next-game-wrapper > .next-game-stages > .stage > .stage-mode {
+    color: white;
+    background: var(--purple);
+    height: 100%;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid var(--indigo);
 }
 
 .break-wrapper > .next-game-wrapper > .next-game-stages > .cap {
@@ -111,11 +122,11 @@
     color: white;
     font-size: 40px;
     justify-content: center;
+    background: var(--purple);
 }
 
 .break-wrapper > .next-game-wrapper > .next-game-stages > .timer {
     font-size: 36px;
-    width: 230px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -257,14 +268,14 @@
 }
 
 .game-wrapper > .stages-wrapper > .stage > .info > .mode {
-    font-size: 32px;
+    font-size: .55em;
     color: var(--purple);
 }
 
 .game-wrapper > .stages-wrapper > .stage > .info > .map {
     display: flex;
     flex-wrap: wrap;
-    font-size: 40px;
+    font-size: .8em;
     font-weight: 700;
     color: var(--indigo);
 }

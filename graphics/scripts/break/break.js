@@ -5,5 +5,6 @@ import './score.js'
 import './stages.js'
 import './casters.js'
 import './music.js'
+import './mainscene.js'
 
 animInit();

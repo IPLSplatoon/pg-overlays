@@ -14,17 +14,14 @@
 	<div class="break-wrapper" style="display: none;">
         <img class="logo" src="./assets/logo.png">
         <div class="content-box break-info-box">
-            <fitted-text class="flavor-text" max-width="500" text="Be right back!" align="center"></fitted-text>
+            <fitted-text class="flavor-text" max-width="1000" text="" id="main-scene-flavor-text"></fitted-text>
         </div>
-        <div class="content-box next-game-wrapper">
+        <div class="content-box next-game-wrapper" id="up-next-wrapper">
             <div class="next">Next:</div>
-            <div class="next-teams">Team A vs Team B</div>
-            <div class="next-game-stages">
-                <div class="stage">SZ</div>
-                <div class="stage">TC</div>
-                <div class="stage">RM</div>
+            <fitted-text class="next-teams" id="next-teams" max-width="918"></fitted-text>
+            <div class="next-game-stages" id="next-stage-wrapper">
                 <div class="stage cap">+2</div>
-                <div class="timer">In ~5 minutes</div>
+                <fitted-text max-width="260" text="" class="timer" id="next-round-timer"></fitted-text>
             </div>
         </div>
         <div class="content-box break-info-box" style="height: 60px;">
@@ -63,7 +60,7 @@
                 </div>
                 <div class="info-scrollable-wrapper" id="info-scrollable-music-wrapper">
                     <img src="./assets/icons/music.svg">
-                    <fitted-text max-width="900" text="Artist - Title" id="main-music"></fitted-text>
+                    <fitted-text max-width="900" text="" id="main-music"></fitted-text>
                 </div>
             </div>
         </div>
@@ -73,7 +70,7 @@
         <div class="team-content-wrapper" style="visibility: none;">
             <div class="content-box team-card">
                 <div class="header">
-                    <img src="assets/logo.png" id="team-a-image">
+                    <img src="" id="team-a-image">
                     <fitted-text class="name" id="team-a-name" max-width="350"></fitted-text>
                 </div>
                 <div class="roster right" id="team-a-roster">
@@ -84,7 +81,7 @@
             <div class="content-box team-card">
                 <div class="header">
                     <fitted-text class="name" id="team-b-name" max-width="350"></fitted-text>
-                    <img src="assets/logo.png" id="team-b-image">
+                    <img src="" id="team-b-image">
                 </div>
                 <div class="roster" id="team-b-roster">
                 </div>
@@ -122,7 +119,7 @@
             </div>
             <div class="bottom-bar-wrapper" style="display: none;" id="bottom-bar-music-wrapper">
                 <img src="./assets/icons/music.svg">
-                <fitted-text max-width="1000" text="Artist - Title" id="bottom-bar-music"></fitted-text>
+                <fitted-text max-width="1000" text="" id="bottom-bar-music"></fitted-text>
             </div>
         </div>
     </div>

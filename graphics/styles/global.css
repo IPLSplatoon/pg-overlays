@@ -20,7 +20,7 @@ body{
     padding: .05em .18em;
     width: fit-content;
     margin-left: .65em;
-    transform: scaleX(.9) translateY(.08em);
+    transform: scaleX(.9) translateY(.085em);
     transform-origin: left;
 }
 

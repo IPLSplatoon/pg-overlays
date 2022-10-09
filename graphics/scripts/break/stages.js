@@ -41,17 +41,15 @@ function setStages(round){
         onComplete: function(){
             wrapper.innerHTML = "";
             for (var i = 0; i < games.length; i++){
-                const stage = getStageElement(games[i].stage, games[i].mode);
+                const stage = getStageElement(games[i].stage, games[i].mode, games.length);
 
                 switch(games.length){
                     case 3:
-                        stage.style.width = "436px"
-                        break;
                     case 5:
-                        stage.style.width = "245px"
+                        wrapper.style.width = "1400px";
                         break;
                     case 7:
-                        stage.style.width = "220px"
+                        wrapper.style.width = "1770px"
 
                 }
 
@@ -109,7 +107,7 @@ function updateScores(round){
     }
 }
 
-function getStageElement(map, mode){
+function getStageElement(map, mode, numGames){
     const element = document.createElement("div");
     element.classList.add("content-box", "stage");
 
@@ -132,15 +130,39 @@ function getStageElement(map, mode){
     const mapName = document.createElement("div");
     mapName.classList.add("map");
     const mapSplit = map.split(" ");
+    var fittedTexts = [];
     for(var i = 0; i < mapSplit.length; i++){
         const fittedText = document.createElement("fitted-text");
-        fittedText.setAttribute("max-width", "220");
         fittedText.setAttribute("text", mapSplit[i]);
+        fittedTexts.push(fittedText);
         mapName.appendChild(fittedText);
     }
     info.appendChild(mapName);
 
     element.appendChild(info);
+
+    switch(numGames){
+        case 3:
+            info.style.fontSize = "1em"
+            element.style.width = "436px";
+            for (var i = 0; i < fittedTexts.length; i++){
+                fittedTexts[i].setAttribute("max-width", 436-12-12);
+            }
+            break;
+        case 5:
+            info.style.fontSize = "1em"
+            element.style.width = "245px";
+            for (var i = 0; i < fittedTexts.length; i++){
+                fittedTexts[i].setAttribute("max-width", 245-12-12);
+            }
+            break;
+        case 7:
+            info.style.fontSize = ".9em"
+            element.style.width = "220px";
+            for (var i = 0; i < fittedTexts.length; i++){
+                fittedTexts[i].setAttribute("max-width", 220-12-12);
+            }
+    }
 
     return element;
 }

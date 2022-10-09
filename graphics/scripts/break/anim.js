@@ -51,14 +51,14 @@ function animBottomBar(){
                 opacity: 1,
                 x: 0,
                 ease: "power4.out",
-                duration: .5
+                duration: .3
             })
             .to(elements[i], {
                 x: -30,
                 opacity: 0,
                 display: "none",
                 ease: "power4.in",
-                duration: .5
+                duration: .3
             }, "+=7");
         }
     }

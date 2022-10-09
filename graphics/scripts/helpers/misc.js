@@ -1,5 +1,5 @@
 
-export function addDots(str, len = 40) {
+export function addDots(str, len = 36) {
     if (str.length < len + 3) {
         return str;
     }
