@@ -160,8 +160,8 @@
 }
 
 .game-wrapper > .team-content-wrapper > .team-card > .header > img {
-    width: 110px;
-    height: 110px;
+    width: 114px;
+    height: 114px;
     object-fit: cover;
 }
 
@@ -184,7 +184,7 @@
     align-items: flex-end;
 }
 
-.game-wrapper > .team-content-wrapper > .team-card > .roster > div {
+.game-wrapper > .team-content-wrapper > .team-card > .roster > fitted-text {
     height: 52px;
     color: var(--indigo);
 }
@@ -218,19 +218,13 @@
 }
 
 .game-wrapper > .stages-wrapper > .stage > .winner{
-    position: absolute;
-    width: calc(100% - 24px);
-    padding: 12px;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--indigo);
+    display: none;
 }
 
 .game-wrapper > .stages-wrapper > .stage > img{
     width: 100%;
     height: 430px;
     object-fit: cover;
-    filter: contrast(.8) brightness(1.2) saturate(.9);
 }
 
 .game-wrapper > .stages-wrapper > .stage > .info {
@@ -249,13 +243,31 @@
 }
 
 .game-wrapper > .stages-wrapper > .stage > .info > .map {
+    display: flex;
+    flex-wrap: wrap;
     font-size: 40px;
     font-weight: 700;
     color: var(--indigo);
 }
 
+.game-wrapper > .stages-wrapper > .stage > .info > .map > *:not(:last-child) {
+    margin-right: .3ch;
+}
+
 .game-wrapper > .stages-wrapper > .finished > img {
-    filter: saturate(.25) contrast(.25) brightness(1.75);
+    filter: saturate(.5) contrast(.5) brightness(1.2);
+}
+
+.game-wrapper > .stages-wrapper > .finished > .winner{
+    display: block;
+    position: absolute;
+    width: calc(100% - 24px);
+    padding: 12px;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    background: var(--purple);
+    overflow-wrap: anywhere;
 }
 
 .game-wrapper > .stages-wrapper > .next {

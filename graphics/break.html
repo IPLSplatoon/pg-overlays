@@ -49,75 +49,26 @@
         <div class="team-content-wrapper" style="visibility: none;">
             <div class="content-box team-card">
                 <div class="header">
-                    <img src="assets/logo.png">
-                    <div class="name">Team A</div>
+                    <img src="assets/logo.png" id="team-a-image">
+                    <fitted-text class="name" id="team-a-name" max-width="350"></fitted-text>
                 </div>
-                <div class="roster right">
-                    <div>Player 1</div>
-                    <div>Player 2</div>
-                    <div>Player 3</div>
-                    <div>Player 4</div>
+                <div class="roster right" id="team-a-roster">
                 </div>
             </div>
-            <div class="content-box score">0</div>
-            <div class="content-box score">0</div>
+            <div class="content-box score" id="team-a-score">0</div>
+            <div class="content-box score" id="team-b-score">0</div>
             <div class="content-box team-card">
                 <div class="header">
-                    <div class="name">Team B</div>
-                    <img src="assets/logo.png">
+                    <fitted-text class="name" id="team-b-name" max-width="350"></fitted-text>
+                    <img src="assets/logo.png" id="team-b-image">
                 </div>
-                <div class="roster">
-                    <div>Player 1</div>
-                    <div>Player 2</div>
-                    <div>Player 3</div>
-                    <div>Player 4</div>
-                    <div>Player 5</div>
-                    <div>Player 6</div>
-                    <div>Player 7</div>
-                    <div>Player 8</div>
+                <div class="roster" id="team-b-roster">
                 </div>
             </div>
         </div>
 
         
-        <div class="stages-wrapper" style="visibility: hidden;">
-            <div class="content-box stage finished">
-                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
-                <div class="winner">Test</div>
-                <div class="info">
-                    <div class="mode">Splat Zones</div>
-                    <div class="map">Eeltail Alley</div>
-                </div>
-            </div>
-            <div class="content-box stage next">
-                <img src="assets/stages/S3_Stage_Mincemeat_Metalworks.png">
-                <div class="winner"></div>
-                <div class="info">
-                    <div class="mode">Tower Control</div>
-                    <div class="map">Mincemeat Metalworks</div>
-                </div>
-            </div>
-            <div class="content-box stage">
-                <img src="assets/stages/S3_Stage_Inkblot_Art_Academy.jpg">
-                <div class="info">
-                    <div class="mode">Rainmaker</div>
-                    <div class="map">Inkblot Art Academy</div>
-                </div>
-            </div>
-            <div class="content-box stage">
-                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
-                <div class="info">
-                    <div class="mode">Splat Zones</div>
-                    <div class="map">Eeltail Alley</div>
-                </div>
-            </div>
-            <div class="content-box stage">
-                <img src="assets/stages/S3_Stage_Eeltail_Alley.jpg">
-                <div class="info">
-                    <div class="mode">Splat Zones</div>
-                    <div class="map">Eeltail Alley</div>
-                </div>
-            </div>
+        <div class="stages-wrapper" style="visibility: hidden;" id="stage-wrapper">
         </div>
     </div>
 

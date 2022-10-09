@@ -3,8 +3,10 @@ import { activeBreakScene } from '../helpers/replicants.js';
 
 const sceneTl = gsap.timeline();
 
-activeBreakScene.on('change', (newValue, oldValue) => {
-    changeScene(newValue, oldValue);
+NodeCG.waitForReplicants(activeBreakScene).then(() => {
+    activeBreakScene.on('change', (newValue, oldValue) => {
+        changeScene(newValue, oldValue);
+    });
 });
 
 function changeScene(newValue, oldValue){
@@ -129,7 +131,7 @@ function showTeams(collapsed = false){
             wrapper.style.visibility = "visible";
 
             if (collapsed){
-
+                tl.add(shiftTeamsUp(true), ">");
             }
         }
     });
@@ -197,6 +199,13 @@ function shiftTeamsUp(instant = false){
         ease: "power4.inOut"
     }, "<");
 
+    tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header > img", {
+        width: 94,
+        height: 94,
+        duration: instant ? 0 : .75,
+        ease: "power4.inOut"
+    }, "<");
+
     return tl;
 }
 
@@ -223,6 +232,13 @@ function shiftTeamsDown(instant = false){
 
     tl.to(".game-wrapper > .team-content-wrapper > .score", {
         height: 100,
+        duration: instant ? 0 : .75,
+        ease: "power4.inOut"
+    }, "<");
+
+    tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header > img", {
+        width: 114,
+        height: 114,
         duration: instant ? 0 : .75,
         ease: "power4.inOut"
     }, "<");
