@@ -2,6 +2,7 @@ import { activeRound, scoreboardData } from '../helpers/replicants.js';
 import gsap from '../../../node_modules/gsap/all.js';
 
 const flavorTextElim = document.getElementById("flavor-text");
+const scoreboardTl = gsap.timeline();
 
 NodeCG.waitForReplicants(activeRound).then(() => {
     activeRound.on("change", (newValue, oldValue) => {
@@ -56,10 +57,10 @@ function updateFlavorText(text){
 }
 
 function showScoreboard(show){
-    const tl = gsap.timeline();
     if (show) {
 
-        tl.fromTo(".teams-box", {
+        const scoreboardShow = gsap.timeline();
+        scoreboardShow.fromTo(".teams-box", {
             width: 55,
             display: "none"
         } , {
@@ -72,14 +73,14 @@ function showScoreboard(show){
             opacity: 0
         }, {
             opacity: 1,
-            duration: .25,
+            duration: .1,
             ease: "power1.out"
         }, "<")
         .fromTo(".teams-box", {
             opacity: 0
         }, {
             opacity: 1,
-            duration: .25,
+            duration: .1,
             ease: "power1.out"
         }, "<")
         .fromTo(".info-bar", {
@@ -91,9 +92,12 @@ function showScoreboard(show){
             ease: "power4.out",
             display: "flex"
         }, "<+=.1");
+        scoreboardTl.add(scoreboardShow);
+
     } else {
 
-        tl.to(".teams-box", {
+        const scoreboardHide = gsap.timeline();
+        scoreboardTl.to(".teams-box", {
             width: 55,
             duration: .75,
             ease: "power4.in",
@@ -107,10 +111,11 @@ function showScoreboard(show){
         }, "<")
         .to([".teams-box", "info-bar"], {
             opacity: 0,
-            duration: .35,
+            duration: .1,
             ease: "power1.in",
             display: "none"
-        }, "<+=0.45");
+        }, "<+=0.65");
+        scoreboardTl.add(scoreboardHide);
 
     }
 }

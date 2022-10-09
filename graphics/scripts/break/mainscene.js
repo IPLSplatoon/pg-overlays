@@ -51,7 +51,7 @@ function updateTimer(){
     var currentText = timerText.getAttribute("text");
 
     var text;
-    if (diff > 1){
+    if (diff >= 1){
         text = `In ~${diff} Minute${diff == 1 ? "" : "s"}`;
     } else {
         text = "Soon!"

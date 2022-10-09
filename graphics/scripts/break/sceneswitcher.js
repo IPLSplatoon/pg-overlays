@@ -17,8 +17,8 @@ function changeScene(newValue, oldValue){
 
         case "teams":
             if (newValue == "main"){
-                sceneTl.add(hideTeams());
-                sceneTl.add(hideBottomBar(), "<");
+                sceneTl.add(hideBottomBar());
+                sceneTl.add(hideTeams(), "<");
             } else {
                 sceneTl.add(shiftTeamsUp());
             }
@@ -26,9 +26,9 @@ function changeScene(newValue, oldValue){
 
         case "stages":
             if (newValue == "main"){
-                sceneTl.add(hideTeams(true));
+                sceneTl.add(hideBottomBar());
+                sceneTl.add(hideTeams(true), "<");
                 sceneTl.add(hideStages(), "<");
-                sceneTl.add(hideBottomBar(), "<");
             } else {
                 sceneTl.add(hideStages());
             }
@@ -46,8 +46,8 @@ function changeScene(newValue, oldValue){
             if (oldValue == "stages"){
                 sceneTl.add(shiftTeamsDown(), "-=.25");
             } else if (oldValue == "main"){
-                sceneTl.add(showTeams());
-                sceneTl.add(showBottomBar(), "<");
+                sceneTl.add(showBottomBar());
+                sceneTl.add(showTeams(), "<");
             }
             break;
 
@@ -109,10 +109,6 @@ function hideMain(){
 
 function showTeams(collapsed = false){
     const tl = gsap.timeline();
-
-    if (collapsed){
-        tl.add(shiftTeamsUp(true));
-    }
 
     tl.fromTo(".game-wrapper > .team-content-wrapper > *", {
         y: collapsed ? -332 : 100,
@@ -303,10 +299,7 @@ function hideStages(){
 function showBottomBar(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".bottom-bar", {
-        opacity: 0,
-        y: 50
-    }, {
+    tl.to(".bottom-bar", {
         opacity: 1,
         y: 0,
         duration: .75,
@@ -319,10 +312,7 @@ function showBottomBar(){
 function hideBottomBar(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".bottom-bar", {
-        opacity: 1,
-        y: 0
-    }, {
+    tl.to(".bottom-bar", {
         opacity: 0,
         y: 50,
         duration: .75,

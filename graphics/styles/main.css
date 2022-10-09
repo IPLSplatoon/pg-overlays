@@ -42,8 +42,6 @@ body{
 .team > .score-wrapper {
     width: 53.5px;
     height: 53.5px;
-    background: var(--purple);
-    color: white;
     display: flex;
     align-items: flex-start;
     justify-content: center;
