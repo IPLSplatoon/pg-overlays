@@ -60,61 +60,71 @@ function showScoreboard(show){
     if (show) {
 
         const scoreboardShow = gsap.timeline();
+
         scoreboardShow.fromTo(".teams-box", {
-            width: 55,
-            display: "none"
-        } , {
+            width: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            borderWidth: "0px"
+        }, {
             width: 305,
-            duration: 1,
+            "box-shadow": "-7px 4px 0px var(--indigo)",
+            borderWidth: "3px",
+            duration: .75,
             ease: "power4.out",
             display: "block"
         })
-        .fromTo([".logo", ".info-bar"], {
-            opacity: 0
-        }, {
-            opacity: 1,
-            duration: .1,
-            ease: "power1.out"
-        }, "<")
-        .fromTo(".teams-box", {
-            opacity: 0
-        }, {
-            opacity: 1,
-            duration: .1,
-            ease: "power1.out"
-        }, "<")
+
         .fromTo(".info-bar", {
             width: 0,
-            display: "none"
-        } , {
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            borderWidth: "0px"
+        }, {
             width: 290,
-            duration: 1,
+            "box-shadow": "-7px 4px 0px var(--indigo)",
+            borderWidth: "3px",
+            duration: .75,
             ease: "power4.out",
             display: "flex"
-        }, "<+=.1");
+        }, "<+=.15")
+
+        .fromTo(".logo", {
+            scale: .65
+        }, {
+            scale: 1,
+            duration: .4,
+            ease: "power4.out"
+        }, "<");
+
         scoreboardTl.add(scoreboardShow);
 
     } else {
 
         const scoreboardHide = gsap.timeline();
-        scoreboardTl.to(".teams-box", {
-            width: 55,
+        
+        scoreboardHide.to(".info-bar", {
+            width: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            borderWidth: "0px",
             duration: .75,
             ease: "power4.in",
             display: "none"
         })
-        .to(".info-bar", {
+
+        .to(".teams-box", {
             width: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            borderWidth: "0px",
             duration: .75,
             ease: "power4.in",
             display: "none"
-        }, "<")
-        .to([".teams-box", "info-bar"], {
-            opacity: 0,
-            duration: .1,
-            ease: "power1.in",
-            display: "none"
-        }, "<+=0.65");
+        }, "<+=.15")
+        
+        .to(".logo", {
+            scale: .65,
+            duration: .4,
+            ease: "power4.in"
+        }, "<+=.25");
+
         scoreboardTl.add(scoreboardHide);
 
     }

@@ -68,28 +68,27 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
 
     tl.fromTo(elim, {
         height: 0,
+        "box-shadow": "0px 0px 0px var(--indigo)",
+        borderWidth: "0px"
     }, {
         height: "auto",
+        "box-shadow": "-7px 4px 0px var(--indigo)",
+        borderWidth: "3px",
         duration: 1,
         ease: "power4.out",
+        visibility: "visible"
     })
-    .fromTo(elim, {
-        opacity: 0
-    }, {
-        opacity: 1,
-        duration: .1,
-    }, "<")
 
     .to(elim, {
         height: 0,
+        "box-shadow": "0px 0px 0px var(--indigo)",
+        borderWidth: "0px",
         duration: 1,
-        ease: "power4.in"
-    }, "+=13")
-    .to(elim, {
-        opacity: 0,
-        duration: .1,
-        ease: "power1.in",
-    }, "<+=.9")
+        ease: "power4.in",
+        onComplete: function(){
+            elim.style.visibility = "hidden";
+        }
+    }, "+=15");
 });
 
 function changeComm(index, caster){

@@ -82,7 +82,7 @@ body{
     top: 116px;
     left: -12px;
     filter: drop-shadow(-3px 2px 0px var(--indigo));
-    
+    transform-origin: left;
 }
 
 .info-bar > .flavor-text-wrapper {
