@@ -64,10 +64,12 @@ function showScoreboard(show){
         scoreboardShow.fromTo(".teams-box", {
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
+            margin: 3,
             borderWidth: "0px"
         }, {
             width: 305,
             "box-shadow": "-7px 4px 0px var(--indigo)",
+            margin: 0,
             borderWidth: "3px",
             duration: .75,
             ease: "power4.out",
@@ -77,11 +79,13 @@ function showScoreboard(show){
         .fromTo(".info-bar", {
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
+            margin: "15px 0px 3px 15px",
             borderWidth: "0px"
         }, {
             width: 290,
             "box-shadow": "-7px 4px 0px var(--indigo)",
             borderWidth: "3px",
+            margin: "12px 0px 0px 15px",
             duration: .75,
             ease: "power4.out",
             display: "flex"
@@ -105,6 +109,7 @@ function showScoreboard(show){
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
             borderWidth: "0px",
+            margin: "15px 0px 3px 15px",
             duration: .75,
             ease: "power4.in",
             display: "none"
@@ -114,6 +119,7 @@ function showScoreboard(show){
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
             borderWidth: "0px",
+            margin: 3,
             duration: .75,
             ease: "power4.in",
             display: "none"

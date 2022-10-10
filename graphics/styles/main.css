@@ -64,7 +64,7 @@ body{
 }
 
 .info-bar {
-    margin-top: 12px;
+    margin: 12px 0 0 0;
     margin-left: calc(305px - 290px);
     width: 290px;
     height: 32px;

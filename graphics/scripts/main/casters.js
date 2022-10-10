@@ -69,11 +69,13 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
     tl.fromTo(elim, {
         height: 0,
         "box-shadow": "0px 0px 0px var(--indigo)",
-        borderWidth: "0px"
+        borderWidth: "0px",
+        margin: 3
     }, {
         height: "auto",
         "box-shadow": "-7px 4px 0px var(--indigo)",
         borderWidth: "3px",
+        margin: 0,
         duration: 1,
         ease: "power4.out",
         visibility: "visible"
@@ -83,6 +85,7 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         height: 0,
         "box-shadow": "0px 0px 0px var(--indigo)",
         borderWidth: "0px",
+        margin: 3,
         duration: 1,
         ease: "power4.in",
         onComplete: function(){

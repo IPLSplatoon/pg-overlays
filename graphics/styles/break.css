@@ -16,7 +16,7 @@
 
 .content-box {
     background: var(--off-white);
-    filter: drop-shadow(var(--drop-shadow));
+    box-shadow: var(--drop-shadow);
     outline: 4px solid var(--indigo);
 }
 
@@ -30,8 +30,12 @@
     margin: auto;
 }
 
+.break-wrapper > .content-box:not(:first-of-type){
+    margin-top: 25px;
+}
+
 .break-wrapper > .content-box:not(:last-child){
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .break-wrapper > .logo {
@@ -65,6 +69,7 @@
     grid-template-rows: 78px 1fr;
     width: 1100px;
     height: 202px;
+    overflow: hidden;
 }
 
 .break-wrapper > .next-game-wrapper > .next {

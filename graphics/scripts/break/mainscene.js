@@ -117,39 +117,37 @@ function showUpNext(show){
     if (show){
         tl.fromTo(upNextWrapper, {
             height: 0,
-            display: "grid",
-            marginBottom: "0px"
+            marginBottom: 0,
+            marginTop: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            outlineWidth: 0,
+            display: "grid"
         }, {
             height: "auto",
+            marginBottom: 25,
+            marginTop: 25,
+            "box-shadow": "-15px 15px 0px var(--indigo)",
+            outlineWidth: 3,
             duration: .75,
             ease: "power4.inOut",
-            marginBottom: "50px"
-        })
-        .fromTo(upNextWrapper, {
-            opacity: 0
-        }, {
-            opacity: 1,
-            duration: .25,
-            ease: "power4.out"
-        })
+        });
     } else {
         const height = upNextWrapper.offsetHeight+1;
-        tl.to(upNextWrapper, {
-            opacity: 0,
-            duration: .25,
-            ease: "power4.out"
-        })
-        .fromTo(upNextWrapper, {
-            height: height
+        tl.fromTo(upNextWrapper, {
+            height: height,
+            marginBottom: 25,
+            marginTop: 25,
+            "box-shadow": "-15px 15px 0px var(--indigo)",
+            outlineWidth: 3
         }, {
             height: 0,
             duration: .75,
-            display: "none",
+            marginBottom: 0,
+            marginTop: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            outlineWidth: 0,
             ease: "power4.inOut",
-            marginBottom: "0px",
-            onComplete: function(){
-                upNextWrapper.style.height = "";
-            }
+            display: "none"
         });
     }
 }
