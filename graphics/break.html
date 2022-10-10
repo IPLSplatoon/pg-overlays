@@ -72,7 +72,11 @@
 
     <div class="game-wrapper">
         <div class="team-content-wrapper" style="visibility: none;">
-            <div class="content-box team-card">
+            <div class="content-box team-top-bar">
+                <fitted-text max-width="650" align="left" text="" id="teams-match-name" style="font-weight: 700;"></fitted-text>
+                <fitted-text max-width="650" align="right" text="" id="teams-next-game"></fitted-text>
+            </div>
+            <div class="content-box team-card stagger">
                 <div class="header">
                     <img src="" id="team-a-image">
                     <fitted-text class="name" id="team-a-name" max-width="350"></fitted-text>
@@ -80,9 +84,9 @@
                 <div class="roster right" id="team-a-roster">
                 </div>
             </div>
-            <div class="content-box score" id="team-a-score" style="margin-right: 30px;">0</div>
-            <div class="content-box score" id="team-b-score" style="margin-left: 30px;">0</div>
-            <div class="content-box team-card">
+            <div class="content-box score stagger" id="team-a-score" style="margin-right: 30px;">0</div>
+            <div class="content-box score stagger" id="team-b-score" style="margin-left: 30px;">0</div>
+            <div class="content-box team-card stagger">
                 <div class="header">
                     <fitted-text class="name" id="team-b-name" max-width="350"></fitted-text>
                     <img src="" id="team-b-image">
@@ -101,7 +105,7 @@
         <img class="icon" src="./assets/icon.png">
         <div id="bottom-wrapper-content">
             <div class="bottom-bar-wrapper">
-                <img src="./assets/hor_text.svg" style="height: 46px;">
+                <img src="./assets/hor_text.svg" style="height: 46px; margin-top: 6px;">
             </div>
             <div class="bottom-bar-wrapper">
                 <img src="./assets/icons/mic.svg">

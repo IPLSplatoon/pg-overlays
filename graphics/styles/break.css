@@ -175,6 +175,20 @@
     width: 1400px;
 }
 
+.game-wrapper > .team-content-wrapper > .team-top-bar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32px;
+    height: 94px;
+    width: calc(1400px - 40px);
+    top: -195px;
+    font-size: 38px;
+    padding: 0 20px;
+    color: var(--indigo);
+}
+
 .game-wrapper > .team-content-wrapper > .team-card {
     width: 490px;
     height: 575px;

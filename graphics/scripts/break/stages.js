@@ -72,6 +72,7 @@ function updateScores(round){
     const games = round.games;
     const alphaName = round.teamA.name;
     const bravoName = round.teamB.name;
+    const nextStageText = document.getElementById("teams-next-game");
 
     for (var i = 0; i < games.length; i++){
         if (stageElims[i] === undefined){
@@ -102,9 +103,13 @@ function updateScores(round){
     for (var i = 0; i < games.length; i++){
         if (games[i].winner === "none"){
             stageElims[i].classList.add("next");
-            break;
+            nextStageText.setAttribute("text", `Next: ${games[i].mode} on ${games[i].stage}`);
+        
+            return;
         }
     }
+
+    nextStageText.setAttribute("text", "");
 }
 
 function getStageElement(map, mode, numGames){

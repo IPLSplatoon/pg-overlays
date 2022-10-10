@@ -4,6 +4,7 @@ import gsap from '../../../node_modules/gsap/all.js';
 
 NodeCG.waitForReplicants(activeRound).then(() => {
     activeRound.on("change", (newValue, oldValue) => {
+
         if (oldValue === undefined){
             setTeamName(newValue.teamA.name, 'a');
             setTeamName(newValue.teamB.name, 'b');
@@ -11,6 +12,7 @@ NodeCG.waitForReplicants(activeRound).then(() => {
             setTeamPlayers(newValue.teamB.players, 'b');
             setTeamImage(newValue.teamA.logoUrl, 'a');
             setTeamImage(newValue.teamB.logoUrl, 'b');
+            setMatchName(newValue.match.name, newValue.games.length);
 
         } else {
             if (newValue.teamA.name !== oldValue.teamA.name){
@@ -29,6 +31,10 @@ NodeCG.waitForReplicants(activeRound).then(() => {
             }
             if (newValue.teamB.showLogo !== oldValue.teamB.showLogo){
                 setTeamImage(newValue.teamB.showLogo ? newValue.teamB.logoUrl : "", 'b');
+            }
+
+            if (newValue.match.name !== oldValue.match.name || newValue.games.length !== oldValue.games.length){
+                setMatchName(newValue.match.name, newValue.games.length);
             }
         }
     });
@@ -116,5 +122,24 @@ function setTeamImage(url, team){
                 })
             }
         }
+    });
+}
+
+function setMatchName(name, games){
+    const elim = document.getElementById("teams-match-name");
+    const tl = gsap.timeline();
+
+    tl.to(elim,{
+        opacity: 0,
+        duration: .5,
+        ease: "power4.in",
+        onComplete: function(){
+            elim.setAttribute("text", `${name} • ${games} games`);
+        }
+    })
+    .to(elim,{
+        opacity: 1,
+        duration: .5,
+        ease: "power4.out"
     });
 }

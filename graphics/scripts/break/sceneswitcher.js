@@ -126,8 +126,8 @@ function showTeams(collapsed = false){
         tl.add(shiftTeamsUp(true));
     }
 
-    tl.to(".game-wrapper > .team-content-wrapper > *", {
-        y: collapsed ? -432 : 0,
+    tl.to(".game-wrapper > .team-content-wrapper > .stagger", {
+        y: 0,
         opacity: 1,
         ease: "power4.out",
         duration: .75,
@@ -139,13 +139,27 @@ function showTeams(collapsed = false){
             const wrapper = document.querySelector(".team-content-wrapper");
             wrapper.style.visibility = "visible";
 
-            gsap.to(".game-wrapper > .team-content-wrapper > *", {
-                y: collapsed ? -332 : 100,
+            gsap.to(".game-wrapper > .team-content-wrapper > .stagger", {
+                y: 100,
                 opacity: 0,
                 duration: 0
             })
         }
     });
+
+    tl.to(".game-wrapper > .team-content-wrapper > .team-top-bar", {
+        y: 0,
+        opacity: 1,
+        ease: "power4.out",
+        duration: .75,
+        onStart: function(){
+            gsap.to(".game-wrapper > .team-content-wrapper > .team-top-bar", {
+                y: -50,
+                opacity: 0,
+                duration: 0
+            });
+        }
+    }, "<");
 
     return tl;
 }
@@ -154,8 +168,8 @@ function hideTeams(collapsed = false){
     const tl = gsap.timeline();
 
 
-    tl.to(".game-wrapper > .team-content-wrapper > *", {
-        y: collapsed ? -332 : 100,
+    tl.to(".game-wrapper > .team-content-wrapper > .stagger", {
+        y: 100,
         opacity: 0,
         ease: "power4.in",
         duration: .75,
@@ -167,8 +181,8 @@ function hideTeams(collapsed = false){
             const wrapper = document.querySelector(".team-content-wrapper");
             wrapper.style.visibility = "hidden";
             
-            gsap.to(".game-wrapper > .team-content-wrapper > *", {
-                y: collapsed ? -432 : 0,
+            gsap.to(".game-wrapper > .team-content-wrapper > .stagger", {
+                y: 0,
                 opacity: 0,
                 duration: 0
             });
@@ -178,6 +192,20 @@ function hideTeams(collapsed = false){
             }
         }
     });
+
+    tl.to(".game-wrapper > .team-content-wrapper > .team-top-bar", {
+        y: -50,
+        opacity: 0,
+        ease: "power4.in",
+        duration: .75,
+        onStart: function(){
+            gsap.to(".game-wrapper > .team-content-wrapper > .team-top-bar", {
+                y: 0,
+                opacity: 1,
+                duration: 0
+            });
+        }
+    }, "<");
 
     return tl;
 }
@@ -191,7 +219,7 @@ function shiftTeamsUp(instant = false){
         duration: instant ? .01 : .5
     });
 
-    tl.to(".game-wrapper > .team-content-wrapper > *", {
+    tl.to(".game-wrapper > .team-content-wrapper", {
         y: -432,
         duration: instant ? .01 : .75,
         ease: "power4.inOut"
@@ -228,7 +256,7 @@ function shiftTeamsUp(instant = false){
 function shiftTeamsDown(instant = false){
     const tl = gsap.timeline();
 
-    tl.to(".game-wrapper > .team-content-wrapper > *", {
+    tl.to(".game-wrapper > .team-content-wrapper", {
         y: 0,
         duration: instant ? 0 : .75,
         ease: "power4.inOut"
