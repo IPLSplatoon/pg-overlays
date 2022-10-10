@@ -1,7 +1,12 @@
 import gsap from "../../../node_modules/gsap/all.js";
 import { activeBreakScene } from '../helpers/replicants.js';
 
-const sceneTl = gsap.timeline();
+const sceneTl = gsap.timeline({
+    defaults: {
+        force3D: false,
+        immediateRender: false
+    }
+});
 
 NodeCG.waitForReplicants(activeBreakScene).then(() => {
     activeBreakScene.on('change', (newValue, oldValue) => {
@@ -65,10 +70,7 @@ function changeScene(newValue, oldValue){
 function showMain(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".break-wrapper > *", {
-        y: 100,
-        opacity: 0
-    }, {
+    tl.to(".break-wrapper > *", {
         y: 0,
         opacity: 1,
         ease: "power4.out",
@@ -77,6 +79,12 @@ function showMain(){
         onStart: function(){
             const wrapper = document.querySelector(".break-wrapper");
             wrapper.style.display = "flex";
+
+            gsap.to(".break-wrapper > *", {
+                y: 100,
+                opacity: 0,
+                duration: 0
+            });
         }
     });
 
@@ -86,10 +94,7 @@ function showMain(){
 function hideMain(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".break-wrapper > *", {
-        y: 0,
-        opacity: 1
-    }, {
+    tl.to(".break-wrapper > *", {
         y: 100,
         opacity: 0,
         ease: "power4.in",
@@ -101,6 +106,13 @@ function hideMain(){
         onComplete: function(){
             const wrapper = document.querySelector(".break-wrapper");
             wrapper.style.display = "none";
+        },
+        onStart: function(){
+            gsap.to(".break-wrapper > *", {
+                y: 0,
+                opacity: 1,
+                duration: 0
+            });
         }
     });
 
@@ -110,10 +122,11 @@ function hideMain(){
 function showTeams(collapsed = false){
     const tl = gsap.timeline();
 
-    tl.fromTo(".game-wrapper > .team-content-wrapper > *", {
-        y: collapsed ? -332 : 100,
-        opacity: 0
-    }, {
+    if (collapsed){
+        tl.add(shiftTeamsUp(true));
+    }
+
+    tl.to(".game-wrapper > .team-content-wrapper > *", {
         y: collapsed ? -432 : 0,
         opacity: 1,
         ease: "power4.out",
@@ -126,9 +139,11 @@ function showTeams(collapsed = false){
             const wrapper = document.querySelector(".team-content-wrapper");
             wrapper.style.visibility = "visible";
 
-            if (collapsed){
-                tl.add(shiftTeamsUp(true), ">");
-            }
+            gsap.to(".game-wrapper > .team-content-wrapper > *", {
+                y: collapsed ? -332 : 100,
+                opacity: 0,
+                duration: 0
+            })
         }
     });
 
@@ -138,10 +153,8 @@ function showTeams(collapsed = false){
 function hideTeams(collapsed = false){
     const tl = gsap.timeline();
 
-    tl.fromTo(".game-wrapper > .team-content-wrapper > *", {
-        y: collapsed ? -432 : 0,
-        opacity: 1
-    }, {
+
+    tl.to(".game-wrapper > .team-content-wrapper > *", {
         y: collapsed ? -332 : 100,
         opacity: 0,
         ease: "power4.in",
@@ -153,8 +166,15 @@ function hideTeams(collapsed = false){
         onComplete: function(){
             const wrapper = document.querySelector(".team-content-wrapper");
             wrapper.style.visibility = "hidden";
+            
+            gsap.to(".game-wrapper > .team-content-wrapper > *", {
+                y: collapsed ? -432 : 0,
+                opacity: 0,
+                duration: 0
+            });
+
             if (collapsed){
-                tl.add(shiftTeamsDown(true), ">");
+                tl.add(shiftTeamsDown(true));
             }
         }
     });
@@ -168,37 +188,37 @@ function shiftTeamsUp(instant = false){
     tl.to(".game-wrapper > .team-content-wrapper > .team-card > .roster", {
         opacity: 0,
         ease: "power2.in",
-        duration: instant ? 0 : .5
+        duration: instant ? .01 : .5
     });
 
     tl.to(".game-wrapper > .team-content-wrapper > *", {
         y: -432,
-        duration: instant ? 0 : .75,
+        duration: instant ? .01 : .75,
         ease: "power4.inOut"
     });
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card", {
         height: 90,
-        duration: instant ? 0 : .75,
+        duration: instant ? .01 : .75,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header", {
         height: 90,
-        duration: instant ? 0 : .75,
+        duration: instant ? .01 : .75,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .score", {
         height: 86,
-        duration: instant ? 0 : .75,
+        duration: instant ? .01 : .75,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header > img", {
         width: 94,
         height: 94,
-        duration: instant ? 0 : .75,
+        duration: instant ? .01 : .75,
         ease: "power4.inOut"
     }, "<");
 
@@ -251,10 +271,7 @@ function shiftTeamsDown(instant = false){
 function showStages(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".game-wrapper > .stages-wrapper > *", {
-        y: 100,
-        opacity: 0
-    }, {
+    tl.to(".game-wrapper > .stages-wrapper > *", {
         y: 0,
         opacity: 1,
         ease: "power4.out",
@@ -266,6 +283,12 @@ function showStages(){
         onStart: function(){
             const wrapper = document.querySelector(".stages-wrapper");
             wrapper.style.visibility = "visible";
+
+            gsap.to(".game-wrapper > .stages-wrapper > *", {
+                y: 100,
+                opacity: 0,
+                duration: 0
+            });
         }
     });
 
@@ -275,10 +298,7 @@ function showStages(){
 function hideStages(){
     const tl = gsap.timeline();
 
-    tl.fromTo(".game-wrapper > .stages-wrapper > *", {
-        y: 0,
-        opacity: 1
-    }, {
+    tl.to(".game-wrapper > .stages-wrapper > *", {
         y: 100,
         opacity: 0,
         ease: "power4.in",
@@ -290,6 +310,12 @@ function hideStages(){
         onComplete: function(){
             const wrapper = document.querySelector(".stages-wrapper");
             wrapper.style.visibility = "hidden";
+
+            gsap.to(".game-wrapper > .stages-wrapper > *", {
+                y: 0,
+                opacity: 1,
+                duration: 0
+            });
         }
     });
 
