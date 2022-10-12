@@ -50,18 +50,19 @@ function setStages(round){
         duration: .25,
         onComplete: function(){
             wrapper.innerHTML = "";
+
+            switch(games.length){
+                case 3:
+                case 5:
+                    wrapper.style.width = "1400px";
+                    break;
+                case 7:
+                    wrapper.style.width = "1770px";
+            }
+
             for (var i = 0; i < games.length; i++){
                 const stage = getStageElement(games[i].stage, games[i].mode, games.length);
-
-                switch(games.length){
-                    case 3:
-                    case 5:
-                        wrapper.style.width = "1400px";
-                        break;
-                    case 7:
-                        wrapper.style.width = "1770px"
-
-                }
+                stage.style.width
 
                 wrapper.appendChild(stage);
             }
@@ -86,7 +87,7 @@ function setSingleStage(round, gameNum){
         "box-shadow": "0px 0px 0px var(--indigo)",
         outlineWidth: 0,
         ease: "power4.in",
-        duration: 1,
+        duration: .75,
         onComplete: function(){
             const newStage = getStageElement(games[gameNum].stage, games[gameNum].mode, games.length);
             wrapper.appendChild(newStage);
@@ -147,7 +148,26 @@ function updateScores(round){
     for (var i = 0; i < games.length; i++){
         if (games[i].winner === "none"){
             stageElims[i].classList.add("next");
-            nextStageText.setAttribute("text", `Next: ${games[i].mode} on ${games[i].stage}`);
+
+            const tl = gsap.timeline();
+
+            tl.to(nextStageText, {
+                opacity: 0,
+                duration: .5,
+                ease: "power4.in",
+                onComplete: function(){
+                    if (games[i].mode !== "Unknown Mode"){
+                        nextStageText.setAttribute("text", `Next: ${games[i].mode} on ${games[i].stage}`);
+                    } else {
+                        nextStageText.setAttribute("text", `Next: ${games[i].stage}`);
+                    }
+                }
+            })
+            .to(nextStageText, {
+                opacity: 1,
+                duration: .5,
+                ease: "power4.out"
+            });
         
             return;
         }
@@ -194,6 +214,7 @@ function getStageElement(map, mode, numGames){
         case 3:
             info.style.fontSize = "1em"
             element.style.width = "436px";
+            image.style.width = "436px";
             for (var i = 0; i < fittedTexts.length; i++){
                 fittedTexts[i].setAttribute("max-width", 436-12-12);
             }
@@ -201,6 +222,7 @@ function getStageElement(map, mode, numGames){
         case 5:
             info.style.fontSize = "1em"
             element.style.width = "245px";
+            image.style.width = "245px";
             for (var i = 0; i < fittedTexts.length; i++){
                 fittedTexts[i].setAttribute("max-width", 245-12-12);
             }
@@ -208,6 +230,7 @@ function getStageElement(map, mode, numGames){
         case 7:
             info.style.fontSize = ".9em"
             element.style.width = "220px";
+            image.style.width = "220px";
             for (var i = 0; i < fittedTexts.length; i++){
                 fittedTexts[i].setAttribute("max-width", 220-12-12);
             }

@@ -274,7 +274,6 @@
 }
 
 .game-wrapper > .stages-wrapper > .stage > img{
-    min-width: 436px;
     min-height: 428px;
     object-fit: cover;
 }
