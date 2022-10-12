@@ -6,27 +6,37 @@ import gsap from '../../../node_modules/gsap/all.js';
 
 NodeCG.waitForReplicants(activeRound).then(() => {
     activeRound.on("change", (newValue, oldValue) => {
-        if (oldValue === undefined || stagesChanged(oldValue.games, newValue.games)){ 
+        if (oldValue === undefined){
             setStages(newValue);
+            return;
+        }
+
+        const stagesChanged = getStagesChanged(oldValue.games, newValue.games);
+
+        if (stagesChanged.length > 1){ 
+            setStages(newValue);
+        } else if (stagesChanged.length == 1) {
+            setSingleStage(newValue, stagesChanged[0]);
         } else if (newValue.teamA.score !== oldValue.teamA.score || newValue.teamB.score !== oldValue.teamB.score){
             updateScores(newValue);
         }
     });
 });
 
-function stagesChanged(oldGames, newGames) {
+function getStagesChanged(oldGames, newGames) {
     if (oldGames.length !== newGames.length){
-        return true;
+        return [0,1,2,3,4,5,6];
     }
 
+    const stages = [];
     for (var i = 0; i < oldGames.length; i++){
         if (newGames[i].stage !== oldGames[i].stage
             || newGames[i].mode !== oldGames[i].mode){
-            return true;
+            stages.push(i);
         }
     }
 
-    return false;
+    return stages;
 }
 
 function setStages(round){
@@ -64,6 +74,40 @@ function setStages(round){
         ease: "power4.out",
         duration: .25
     }, "+=.25");
+}
+
+function setSingleStage(round, gameNum){
+    const games = round.games;
+    const wrapper = document.getElementById("stage-wrapper");
+    const stageElim = wrapper.querySelectorAll(".stage")[gameNum];
+
+    gsap.to(stageElim, {
+        height: 0,
+        "box-shadow": "0px 0px 0px var(--indigo)",
+        outlineWidth: 0,
+        ease: "power4.in",
+        duration: 1,
+        onComplete: function(){
+            const newStage = getStageElement(games[gameNum].stage, games[gameNum].mode, games.length);
+            wrapper.appendChild(newStage);
+
+            stageElim.replaceWith(newStage);
+            
+            updateScores(round);
+
+            gsap.fromTo(newStage, {
+                height: 0,
+                "box-shadow": "0px 0px 0px var(--indigo)",
+                outlineWidth: 0
+            }, {
+                height: 600,
+                "box-shadow": "-15px 15px 0px var(--indigo)",
+                outlineWidth: 3,
+                duration: 1,
+                ease: "power4.out"
+            });
+        }
+    });
 }
 
 function updateScores(round){

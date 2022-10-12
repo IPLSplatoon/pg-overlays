@@ -265,6 +265,8 @@
     height: 600px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
 .game-wrapper > .stages-wrapper > .stage > .winner{
@@ -272,8 +274,8 @@
 }
 
 .game-wrapper > .stages-wrapper > .stage > img{
-    width: 100%;
-    height: 430px;
+    min-width: 436px;
+    min-height: 428px;
     object-fit: cover;
 }
 
@@ -285,6 +287,7 @@
     flex-direction: column;
     justify-content: center;
     border-top: 4px solid var(--indigo);
+    overflow: hidden;
 }
 
 .game-wrapper > .stages-wrapper > .stage > .info > .mode {
@@ -318,18 +321,10 @@
     color: white;
     background: var(--purple);
     overflow-wrap: anywhere;
+    border-bottom: 4px solid var(--indigo);
 }
-
-.game-wrapper > .stages-wrapper > .next {
-    height: 650px;
-}
-
-.game-wrapper > .stages-wrapper > .next > img {
-    height: 455px;
-}   
 
 .game-wrapper > .stages-wrapper > .next > .info {
-    height: calc(650px - 455px);
     background: var(--purple);
 }
 

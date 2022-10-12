@@ -12,6 +12,15 @@ NodeCG.waitForReplicants(activeBreakScene).then(() => {
     activeBreakScene.on('change', (newValue, oldValue) => {
         changeScene(newValue, oldValue);
     });
+
+    //bandaid fix to a bug that might *just* happen once on stream
+    if (activeBreakScene.value == "main"){
+        gsap.to(".game-wrapper > .team-content-wrapper > .team-top-bar", {
+            y: -50,
+            opacity: 0,
+            duration: 0
+        });
+    }
 });
 
 function changeScene(newValue, oldValue){
