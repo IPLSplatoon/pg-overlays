@@ -65,11 +65,15 @@ function showScoreboard(show){
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
             margin: 3,
+            x: -7,
+            y: 4,
             borderWidth: "0px"
         }, {
             width: 305,
             "box-shadow": "-7px 4px 0px var(--indigo)",
             margin: 0,
+            x: 0,
+            y: 0,
             borderWidth: "3px",
             duration: .75,
             ease: "power4.out",

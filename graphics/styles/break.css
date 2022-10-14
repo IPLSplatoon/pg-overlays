@@ -197,6 +197,7 @@
 .game-wrapper > .team-content-wrapper > .team-card {
     width: 490px;
     height: 575px;
+    overflow: hidden;
 }
 
 .game-wrapper > .team-content-wrapper > .team-card > .header {

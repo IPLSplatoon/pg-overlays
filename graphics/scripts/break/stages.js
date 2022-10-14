@@ -81,8 +81,23 @@ function setSingleStage(round, gameNum){
     const games = round.games;
     const wrapper = document.getElementById("stage-wrapper");
     const stageElim = wrapper.querySelectorAll(".stage")[gameNum];
+    const tl = gsap.timeline();
 
-    gsap.to(stageElim, {
+    const flash = gsap.timeline({
+        repeat: 1
+    });
+    flash.to(stageElim, {
+        "box-shadow": "-15px 15px 0px #FFE80A",
+        duration: .2
+    })
+    .to(stageElim, {
+        "box-shadow": "-15px 15px 0px #3E0099",
+        duration: .2
+    });
+
+    tl.add(flash);
+
+    tl.to(stageElim, {
         height: 0,
         "box-shadow": "0px 0px 0px var(--indigo)",
         outlineWidth: 0,
@@ -96,7 +111,7 @@ function setSingleStage(round, gameNum){
             
             updateScores(round);
 
-            gsap.fromTo(newStage, {
+            tl.fromTo(newStage, {
                 height: 0,
                 "box-shadow": "0px 0px 0px var(--indigo)",
                 outlineWidth: 0

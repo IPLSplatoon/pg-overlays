@@ -222,12 +222,6 @@ function hideTeams(collapsed = false){
 function shiftTeamsUp(instant = false){
     const tl = gsap.timeline();
 
-    tl.to(".game-wrapper > .team-content-wrapper > .team-card > .roster", {
-        opacity: 0,
-        ease: "power2.in",
-        duration: instant ? .01 : .5
-    });
-
     tl.to(".game-wrapper > .team-content-wrapper", {
         y: -432,
         duration: instant ? .01 : .75,
@@ -295,12 +289,6 @@ function shiftTeamsDown(instant = false){
         duration: instant ? 0 : .75,
         ease: "power4.inOut"
     }, "<");
-
-    tl.to(".game-wrapper > .team-content-wrapper > .team-card > .roster", {
-        opacity: 1,
-        ease: "power2.out",
-        duration: instant ? 0 : .5
-    });
 
     return tl;
 }
