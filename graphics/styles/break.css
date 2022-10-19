@@ -187,11 +187,23 @@
     align-items: center;
     font-size: 32px;
     height: 94px;
-    width: calc(1400px - 40px);
+    width: 1400px;
     top: -195px;
     font-size: 38px;
-    padding: 0 20px;
     color: var(--indigo);
+}
+
+.game-wrapper > .team-content-wrapper > .team-top-bar > *:first-child {
+    padding-right: 20px;
+    padding-left: 20px;
+    background: var(--purple);
+    color: white;
+    align-items: center;
+    height: 100%;
+    border-right: 4px solid var(--indigo);
+}
+.game-wrapper > .team-content-wrapper > .team-top-bar > *:last-child {
+    padding-right: 20px;
 }
 
 .game-wrapper > .team-content-wrapper > .team-card {

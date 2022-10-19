@@ -224,32 +224,32 @@ function shiftTeamsUp(instant = false){
 
     tl.to(".game-wrapper > .team-content-wrapper", {
         y: -432,
-        duration: instant ? .01 : .75,
+        duration: instant ? .01 : 1,
         ease: "power4.inOut"
     });
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card", {
         height: 90,
-        duration: instant ? .01 : .75,
+        duration: instant ? .01 : 1,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header", {
         height: 90,
-        duration: instant ? .01 : .75,
+        duration: instant ? .01 : 1,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .score", {
         height: 86,
-        duration: instant ? .01 : .75,
+        duration: instant ? .01 : 1,
         ease: "power4.inOut"
     }, "<");
 
     tl.to(".game-wrapper > .team-content-wrapper > .team-card > .header > img", {
         width: 94,
         height: 94,
-        duration: instant ? .01 : .75,
+        duration: instant ? .01 : 1,
         ease: "power4.inOut"
     }, "<");
 
