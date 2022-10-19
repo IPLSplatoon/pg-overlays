@@ -26,10 +26,6 @@ From the dashboard, URLs to the graphics can be found from the graphics tab. To 
 browser sources in a broadcast application such as OBS Studio. The graphics should be used at a resolution of
 1920x1080 and open in a chromium based browser.
 
-## Editing source
-
-To edit the source code, please edit the TypeScript (.ts) files. You can compile them into JavaScript (.js) files using the `tsc -build` command in the root of the project directory (in the pg-overlays folder). You can also use `tsc -watch` to auto compile code on each change.
-
 ## Credits
 
 Code was very inspired by other IPL overlays created by [inkfarer](https://github.com/inkfarer)
