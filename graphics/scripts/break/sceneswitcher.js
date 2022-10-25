@@ -168,7 +168,7 @@ function showTeams(collapsed = false){
                 duration: 0
             });
         }
-    }, "<");
+    }, "<+=.1");
 
     return tl;
 }
@@ -214,7 +214,7 @@ function hideTeams(collapsed = false){
                 duration: 0
             });
         }
-    }, "<");
+    }, "<+=.1");
 
     return tl;
 }

@@ -76,20 +76,8 @@ body{
     justify-content: flex-start;
 }
 
-.info-bar > .logo {
-    position: absolute;
-    height: 57px;
-    top: 116px;
-    left: -12px;
-    filter: drop-shadow(-3px 2px 0px var(--indigo));
-    transform-origin: left;
-}
-
 .info-bar > .flavor-text-wrapper {
     width: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-left: 35px;
     overflow: hidden;
 }
@@ -98,8 +86,17 @@ body{
     font-size: 18px;
     color: var(--indigo);
     overflow: hidden;
+    width: 240px;
 }
 
+.logo {
+    position: absolute;
+    height: 57px;
+    top: 116px;
+    left: -12px;
+    filter: drop-shadow(-3px 2px 0px var(--indigo));
+    transform-origin: left;
+}
 
 
 .casters-wrapper {

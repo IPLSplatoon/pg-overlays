@@ -70,7 +70,8 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         height: 0,
         "box-shadow": "0px 0px 0px var(--indigo)",
         borderWidth: "0px",
-        margin: 3
+        margin: 3,
+        y: -3
     }, {
         height: "auto",
         "box-shadow": "-7px 4px 0px var(--indigo)",
@@ -78,7 +79,8 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         margin: 0,
         duration: 1,
         ease: "power4.out",
-        visibility: "visible"
+        visibility: "visible",
+        y: 0
     })
 
     .to(elim, {
@@ -88,6 +90,7 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         margin: 3,
         duration: 1,
         ease: "power4.in",
+        y: -3,
         onComplete: function(){
             elim.style.visibility = "hidden";
         }

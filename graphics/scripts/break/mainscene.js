@@ -110,12 +110,13 @@ function roundsChanged(oldRounds, newRounds){
     return false;
 }
 
+const upNextTl = gsap.timeline();
+
 function showUpNext(show){
     const upNextWrapper = document.getElementById("up-next-wrapper");
-    const tl = gsap.timeline();
 
     if (show){
-        tl.fromTo(upNextWrapper, {
+        upNextTl.fromTo(upNextWrapper, {
             height: 0,
             marginBottom: 0,
             marginTop: 0,
@@ -133,7 +134,7 @@ function showUpNext(show){
         });
     } else {
         const height = upNextWrapper.offsetHeight+1;
-        tl.fromTo(upNextWrapper, {
+        upNextTl.fromTo(upNextWrapper, {
             height: height,
             marginBottom: 25,
             marginTop: 25,
@@ -202,7 +203,6 @@ function changeTeams(round){
 function getNextMatchMapElement(map, mode){
     const stage = document.createElement("div");
     stage.classList.add("stage");
-    stage.style.background = `url('./assets/stages/${mapNameToImagePath[map]}')`;
 
     const stageMode = document.createElement("div");
     stageMode.classList.add("stage-mode");
@@ -217,6 +217,11 @@ function getNextMatchMapElement(map, mode){
 
     if (stageMode.innerText !== ""){
         stage.appendChild(stageMode);
+        stage.style.background = `url('./assets/stages/${mapNameToImagePath[map]}')`;
+    } else { //assume counterpick
+        stage.style.fontSize = "28px"
+        stage.innerHTML = "&nbsp;Counterpick";
+        stage.style.background = "var(--purple)";
     }
 
     return stage;

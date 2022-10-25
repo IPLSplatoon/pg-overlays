@@ -80,28 +80,34 @@ function showScoreboard(show){
             display: "block"
         })
 
+        .fromTo(".logo", {
+            opacity: 0,
+            x: -20
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: .4,
+            ease: "power4.out"
+        }, "<")
+
         .fromTo(".info-bar", {
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
             margin: "15px 0px 3px 15px",
-            borderWidth: "0px"
+            borderWidth: "0px",
+            x: -7,
+            y: 4
         }, {
             width: 290,
             "box-shadow": "-7px 4px 0px var(--indigo)",
             borderWidth: "3px",
             margin: "12px 0px 0px 15px",
+            x: 0,
+            y: 0,
             duration: .75,
             ease: "power4.out",
             display: "flex"
-        }, "<+=.15")
-
-        .fromTo(".logo", {
-            scale: .65
-        }, {
-            scale: 1,
-            duration: .4,
-            ease: "power4.out"
-        }, "<");
+        }, "<+=.15");
 
         scoreboardTl.add(scoreboardShow);
 
@@ -130,10 +136,11 @@ function showScoreboard(show){
         }, "<+=.15")
         
         .to(".logo", {
-            scale: .65,
-            duration: .4,
-            ease: "power4.in"
-        }, "<+=.25");
+            x: -20,
+            opacity: 0,
+            duration: .1,
+            ease: "none"
+        }, "<+=.6");
 
         scoreboardTl.add(scoreboardHide);
 

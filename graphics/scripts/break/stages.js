@@ -121,7 +121,7 @@ function setSingleStage(round, gameNum){
                 outlineWidth: 3,
                 duration: 1,
                 ease: "power4.out"
-            });
+            }, "+=.25");
         }
     });
 }
