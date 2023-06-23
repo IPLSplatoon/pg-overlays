@@ -5,7 +5,7 @@ export const mapNameToImagePath = {
     "Blackbelly Skatepark": "S2_Stage_Blackbelly_Skatepark.png",
     "Camp Triggerfish": "S2_Stage_Camp_Triggerfish.png",
     "Goby Arena": "S2_Stage_Goby_Arena.png",
-    "Humpback Pump Track": "S2_Stage_Humpback_Pump_Track.png",
+    "Humpback Pump Track": "S3_Stage_Humpback_Pump_Track.png",
     "Inkblot Art Academy": "S3_Stage_Inkblot_Art_Academy.jpg",
     "Kelp Dome": "S2_Stage_Kelp_Dome.png",
     "MakoMart": "S3_Stage_Mako_Mart.jpg",
@@ -36,5 +36,6 @@ export const mapNameToImagePath = {
     "Counterpick": "unnamed-unknown-map.png",
     "Brinewater Springs": "S3_Brinewater_Springs.png",
     "Flounder Heights": "S3_Stage_Flounder_Heights.png",
-    "Um'ami Ruins": "S3_Stage_Umami_Ruins.png"
+    "Um'ami Ruins": "S3_Stage_Umami_Ruins.png",
+    "Barnacle & Dime": "S3_Stage_Barnacle_&_Dime.png",
 };
