@@ -54,6 +54,8 @@ function updateFlavorText(text){
         duration: .25,
         ease: "power4.in"
     });
+
+    document.getElementById("match-info").innerText = text.replaceAll("-", "\n");
 }
 
 function showScoreboard(show){
@@ -69,7 +71,7 @@ function showScoreboard(show){
             y: 4,
             borderWidth: "0px"
         }, {
-            width: 305,
+            width: 315,
             "box-shadow": "-7px 4px 0px var(--indigo)",
             margin: 0,
             x: 0,
@@ -80,52 +82,42 @@ function showScoreboard(show){
             display: "block"
         })
 
-        .fromTo(".logo", {
+        const infoShow = gsap.timeline();
+
+        infoShow.fromTo(".logo", {
             opacity: 0,
-            x: -20
+            x: 40
         }, {
             opacity: 1,
             x: 0,
-            duration: .4,
+            duration: .3,
             ease: "power4.out"
-        }, "<")
-
-        .fromTo(".info-bar", {
+        })
+        .fromTo(".info-wrapper", {
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
-            margin: "15px 0px 3px 15px",
-            borderWidth: "0px",
-            x: -7,
-            y: 4
+            y: 4,
+            x: -7 + 316,
+            borderWidth: "0px"
         }, {
-            width: 290,
-            "box-shadow": "-7px 4px 0px var(--indigo)",
-            borderWidth: "3px",
-            margin: "12px 0px 0px 15px",
-            x: 0,
+            opacity: 1,
+            width: 310,
+            "box-shadow": "-4px 4px 0px var(--indigo)",
             y: 0,
+            x: 0,
+            borderWidth: "3px",
             duration: .75,
-            ease: "power4.out",
-            display: "flex"
-        }, "<+=.15");
+            ease: "power4.out"
+        })
 
         scoreboardTl.add(scoreboardShow);
+        scoreboardTl.add(infoShow, "<+=.3");
 
     } else {
 
         const scoreboardHide = gsap.timeline();
-        
-        scoreboardHide.to(".info-bar", {
-            width: 0,
-            "box-shadow": "0px 0px 0px var(--indigo)",
-            borderWidth: "0px",
-            margin: "15px 0px 3px 15px",
-            duration: .75,
-            ease: "power4.in",
-            display: "none"
-        })
 
-        .to(".teams-box", {
+        scoreboardHide.to(".teams-box", {
             width: 0,
             "box-shadow": "0px 0px 0px var(--indigo)",
             borderWidth: "0px",
@@ -133,16 +125,28 @@ function showScoreboard(show){
             duration: .75,
             ease: "power4.in",
             display: "none"
-        }, "<+=.15")
-        
+        }, "<+=.15");
+
+        const infoHide = gsap.timeline();
+
+        infoHide.to(".info-wrapper", {
+            width: 0,
+            "box-shadow": "0px 0px 0px var(--indigo)",
+            borderWidth: "0px",
+            duration: .75,
+            x: -7 + 316,
+            y: 4,
+            ease: "power4.in"
+        })
         .to(".logo", {
-            x: -20,
             opacity: 0,
-            duration: .1,
-            ease: "none"
-        }, "<+=.6");
+            x: 40,
+            duration: .3,
+            ease: "power4.out"
+        })
 
         scoreboardTl.add(scoreboardHide);
+        scoreboardTl.add(infoHide, "<");
 
     }
 }
