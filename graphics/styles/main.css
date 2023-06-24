@@ -88,12 +88,6 @@ body{
     font-size: 20px;
 }
 
-.info-wrapper > .segment > .name > * {
-    margin: 0 7.5px;
-    text-align: center;
-    width: 295px;
-}
-
 .info-wrapper > .segment > .mic-icon {
     width: 32px;
     height: 32px;
@@ -174,6 +168,7 @@ span.pronouns {
     color: white;
     background: var(--purple);
     border-bottom: 3px solid var(--indigo);
+    font-weight: bold;
 }
 
 .match-info-body {
@@ -205,7 +200,7 @@ span.pronouns {
 }
 
 .match-info-body > .segment > span > img {
-    height: .9em;
+    height: .8em;
     width: auto;
     margin-right: .4em;
 }

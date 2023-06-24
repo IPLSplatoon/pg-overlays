@@ -81,11 +81,11 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
 });
 
 function changeMatchInfoCasters(casters){
-    let html = '<div class="segment"><span><img src="./assets/icons/mic.svg"><div>On the mic</div></span></div>';
+    let html = '<div class="segment"><span><img src="./assets/icons/mic.svg"><div style="font-weight: bold;">On the mic</div></span></div>';
     for (let i = 0; i < casters.length; i++){
         const caster = casters[i];
         html += `<div class="segment"><fitted-text max-width="290" text="${caster.name}"></fitted-text><span>`;
-        if (caster.twitter != ""){
+        if (caster.twitter != "@"){
             html += `<fitted-text class="small" max-width="290" text="${caster.twitter}"></fitted-text>`
         }
         if (caster.pronouns != ""){
@@ -105,7 +105,7 @@ function changeCasterScrollable(casters){
         const caster = casters[i];
         html += '&nbsp&nbsp/&nbsp&nbsp';
         html += `${caster.name}`;
-        if (caster.twitter != ""){
+        if (caster.twitter != "@"){
             html += `&nbsp•&nbsp${caster.twitter}`;
         }
         if (caster.pronouns != ""){
@@ -121,10 +121,10 @@ function changeCasterScrollable(casters){
     castersScrollTl.clear();
     let width = scrollable1.scrollWidth;
     if (width < 275){
+        scrollable1.style.marginRight = `${275-width}px`;
         width = 275;
-        scrollable1.style.width = `${width}px`;
     } else {
-        scrollable1.style.width = 'auto';
+        scrollable1.style.marginRight = '0px';
     }
     console.log(width);
     castersScrollTl.to(scroller, {
