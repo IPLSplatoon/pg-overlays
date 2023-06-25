@@ -85,7 +85,7 @@ body{
     align-items: center;
     justify-content: flex-start;
     color: var(--indigo);
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .info-wrapper > .segment > .mic-icon {
@@ -146,7 +146,7 @@ body{
 span.pronouns {
     height: fit-content;
     margin: auto 0;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .match-info-wrapper {

@@ -55,7 +55,7 @@ function updateFlavorText(text){
         ease: "power4.in"
     });
 
-    document.getElementById("match-info").innerText = text.replaceAll("-", "\n");
+    document.getElementById("match-info").innerText = text;
 }
 
 function showScoreboard(show){

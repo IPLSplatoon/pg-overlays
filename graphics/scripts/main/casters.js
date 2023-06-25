@@ -26,14 +26,17 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         x: 82,
         duration: 1,
         ease: "power4.inOut"
-    }, "<");
-
-    tl.to(".match-info-wrapper", {
+    }, "<")
+    .fromTo(".match-info-wrapper", {
+        x: -82
+    },{
+        x: 0,
         opacity: 1,
-        duration: .25,
-        ease: "power2.inOut"
-    })
-    .to("#match-info-visibility", {
+        duration: 1,
+        ease: "power4.inOut"
+    }, "<")
+
+    tl.to("#match-info-visibility", {
         opacity: 1,
         duration: .7,
         ease: "power4.in"
@@ -60,12 +63,7 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         opacity: 0,
         duration: .7,
         ease: "power3.inOut"
-    }, "-=.8")
-    .to(".match-info-wrapper", {
-        opacity: 0,
-        duration: .25,
-        ease: "power2.inOut"
-    });
+    }, "-=.8");
 
     tl.to(".logo", {
         opacity: 1,
@@ -77,7 +75,13 @@ nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
         x: 0,
         duration: 1,
         ease: "power4.inOut"
-    }, "<");
+    }, "<")
+    .to(".match-info-wrapper", {
+        opacity: 0,
+        duration: 1,
+        ease: "power4.inOut",
+        x: -82
+    } , "<");
 });
 
 function changeMatchInfoCasters(casters){
