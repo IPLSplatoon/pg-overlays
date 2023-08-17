@@ -13,53 +13,57 @@
 	<div class="scoreboard-wrapper">
         <div class="teams-box">
             <div class="team">
-                <fitted-text class="name" max-width="235" text="" id="team-a-name"></fitted-text>
+                <fitted-text class="name" max-width="245" text="" id="team-a-name"></fitted-text>
                 <div class="score-wrapper" id="score-wrapper-a">
                     <div class="score" id="team-a-score"></div>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="team">
-                <fitted-text class="name" max-width="235" text="Team B" id="team-b-name"></fitted-text>
+                <fitted-text class="name" max-width="245" text="Team B" id="team-b-name"></fitted-text>
                 <div class="score-wrapper" id="score-wrapper-b">
                     <div class="score" id="team-b-score"></div>
                 </div>
             </div>
         </div>
-        <div class="info-bar">
-            <div class="flavor-text-wrapper">
-                <fitted-text class="flavor-text" text="Proving Grounds" max-width="240" align="center" id="flavor-text"></fitted-text>
-            </div>
-        </div>
-        <img class="logo" src="./assets/icon.png">
     </div>
-    <div class="casters-wrapper" id="casters-wrapper" style="visibility: hidden;">
-        <div class="header">
-            <img src="./assets/icons/mic-light.svg">
-            <div>Commentators</div>
+
+    <div class="info-wrapper">
+        <div class="segment" style="display: flex; justify-content: center;">
+            <fitted-text class="name" max-width="295" align="center" text="" id="flavor-text"></fitted-text>
         </div>
-        <div class="casters-body">
-            <div class="caster" id="caster-a-wrapper">
-                <div class="caster-name-wrapper">
-                    <fitted-text class="name" max-width="275" id="caster-a-name" text=""></fitted-text>
-                    <div class="pronouns" id="caster-a-pronouns"></div>
-                </div>
-                <fitted-text class="twitter" max-width="275" id="caster-a-twitter" text=""></fitted-text>
+        <div class="divider"></div>
+        <div class="segment">
+            <div class="mic-icon">
+                <img src="./assets/icons/mic-light.svg">
             </div>
-            <div class="caster" id="caster-b-wrapper">
-                <div class="caster-name-wrapper">
-                    <fitted-text class="name" max-width="275" id="caster-b-name" text=""></fitted-text>
-                    <div class="pronouns" id="caster-b-pronouns"></div>
+            <div class="caster-info" id="casters">
+                <div class="scroller" id="caster-scroller">
+                    <div class="text-part" id="caster-scrollable-1"></div>
+                    <div class="text-part" id="caster-scrollable-2"></div>
                 </div>
-                <fitted-text class="twitter" max-width="275" id="caster-b-twitter" text=""></fitted-text>
-            </div>
-            <div class="caster" id="caster-c-wrapper">
-                <div class="caster-name-wrapper">
-                    <fitted-text class="name" max-width="275" id="caster-c-name" text=""></fitted-text>
-                    <div class="pronouns" id="caster-c-pronouns"></div>
-                </div>
-                <fitted-text class="twitter" max-width="275" id="caster-c-twitter" text=""></fitted-text>
             </div>
         </div>
     </div>
+
+    <div class="logo">
+        <img src="./assets/icon.png">
+    </div>
+
+    <div class="match-info-wrapper">
+        <div id="match-info-visibility" style="opacity: 0;">
+            <div class="match-info-header" id="match-info">
+            </div>
+            <div id="match-info-timer"></div>
+            <div class="match-info-body">
+            </div>
+        </div>
+    </div>
+
+    <div style="
+        position: absolute;
+        top: 1100px;
+        opacity: 0;
+        font-family: 'Raleway', sans-serif;
+    ">font preload</div>
 </body>

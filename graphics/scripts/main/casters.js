@@ -2,121 +2,139 @@ import { casters } from '../helpers/replicants.js';
 import { DASHBOARD_BUNDLE_NAME } from '../helpers/constants.js';
 import gsap from '../../../node_modules/gsap/all.js';
 
-const casterWrappers = [
-    document.getElementById("caster-a-wrapper"),
-    document.getElementById("caster-b-wrapper"),
-    document.getElementById("caster-c-wrapper")
-]
-
-const casterNames = [
-    document.getElementById("caster-a-name"),
-    document.getElementById("caster-b-name"),
-    document.getElementById("caster-c-name")
-]
-
-const casterPronouns = [
-    document.getElementById("caster-a-pronouns"),
-    document.getElementById("caster-b-pronouns"),
-    document.getElementById("caster-c-pronouns")
-]
-
-const casterTwitters = [
-    document.getElementById("caster-a-twitter"),
-    document.getElementById("caster-b-twitter"),
-    document.getElementById("caster-c-twitter")
-]
+const castersScrollTl = gsap.timeline();
 
 NodeCG.waitForReplicants(casters).then(() => {
-    casters.on('change', (newValue, oldValue) => {
-
+    casters.on('change', (newValue) => {
         const casters = Object.values(newValue);
-        const oldCasters = oldValue === undefined ? undefined : Object.values(oldValue);
-
-        if (oldCasters === undefined){
-            for(var i = 0; i < 3; i++){
-                if (casters[i] !== undefined){
-                    changeComm(i, casters[i]);
-                    showComm(i, true);
-                } else {
-                    showComm(i, false);
-                }
-            }
-        } else {
-            for(var i = 0; i < 3; i++){
-                if (oldCasters[i] === undefined || casters[i] === undefined){
-                    if (oldCasters[i] === undefined && casters[i] !== undefined){
-                        changeComm(i, casters[i]);
-                        showComm(i, true);
-                    } else if (oldCasters[i] !== undefined && casters[i] === undefined){
-                        showComm(i, false);
-                    }
-                } else {
-                    if (casters[i].name !== oldCasters[i].name
-                        || casters[i].twitter !== oldCasters[i].twitter
-                        || casters[i].pronouns !== oldCasters[i].pronouns){
-                            changeComm(i, casters[i]);
-                        }
-                }      
-            }
-        }
+        
+        changeCasterScrollable(casters);
+        changeMatchInfoCasters(casters);
     });
 });
 
 nodecg.listenFor('mainShowCasters', DASHBOARD_BUNDLE_NAME, () => {
     const tl = gsap.timeline();
-    const elim = document.getElementById("casters-wrapper");
-
-    tl.fromTo(elim, {
-        height: 0,
-        "box-shadow": "0px 0px 0px var(--indigo)",
-        borderWidth: "0px",
-        margin: 3,
-        y: -3
-    }, {
-        height: "auto",
-        "box-shadow": "-7px 4px 0px var(--indigo)",
-        borderWidth: "3px",
-        margin: 0,
+    
+    tl.to(".logo", {
+        opacity: 0,
+        x: 82,
         duration: 1,
-        ease: "power4.out",
-        visibility: "visible",
-        y: 0
+        ease: "power4.inOut"
     })
-
-    .to(elim, {
-        height: 0,
-        "box-shadow": "0px 0px 0px var(--indigo)",
-        borderWidth: "0px",
-        margin: 3,
+    .to(".info-wrapper", {
+        x: 82,
         duration: 1,
-        ease: "power4.in",
-        y: -3,
-        onComplete: function(){
-            elim.style.visibility = "hidden";
-        }
-    }, "+=15");
+        ease: "power4.inOut"
+    }, "<")
+    .fromTo(".match-info-wrapper", {
+        x: -82
+    },{
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power4.inOut"
+    }, "<")
+
+    tl.to("#match-info-visibility", {
+        opacity: 1,
+        duration: .7,
+        ease: "power4.in"
+    })
+    .to(".match-info-wrapper", {
+        height: "auto",
+        duration: 1,
+        ease: "power4.inOut"
+    }, "<")
+    .fromTo("#match-info-timer", {
+        width: 310        
+    }, {
+        width: 0,
+        duration: 12,
+        ease: "none"
+    })
+    
+    tl.to(".match-info-wrapper", {
+        height: 67,
+        duration: 1,
+        ease: "power4.inOut"
+    })
+    .to("#match-info-visibility", {
+        opacity: 0,
+        duration: .7,
+        ease: "power3.inOut"
+    }, "-=.8");
+
+    tl.to(".logo", {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power4.inOut"
+    })
+    .to(".info-wrapper", {
+        x: 0,
+        duration: 1,
+        ease: "power4.inOut"
+    }, "<")
+    .to(".match-info-wrapper", {
+        opacity: 0,
+        duration: 1,
+        ease: "power4.inOut",
+        x: -82
+    } , "<");
 });
 
-function changeComm(index, caster){
-    const tl = gsap.timeline();
-
-    tl.to(casterWrappers[index], {
-        opacity: 0,
-        duration: .25,
-        ease: "power4.in",
-        onComplete: function(){
-            casterNames[index].setAttribute("text", caster.name);
-            casterTwitters[index].setAttribute("text", caster.twitter);
-            casterPronouns[index].innerText = caster.pronouns;
+function changeMatchInfoCasters(casters){
+    let html = '<div class="segment"><span><img src="./assets/icons/mic.svg"><div style="font-weight: bold;">On the mic</div></span></div>';
+    for (let i = 0; i < casters.length; i++){
+        const caster = casters[i];
+        html += `<div class="segment"><fitted-text max-width="290" text="${caster.name}"></fitted-text><span>`;
+        if (caster.twitter != "@"){
+            html += `<fitted-text class="small" max-width="290" text="${caster.twitter}"></fitted-text>`
         }
-    })
-    .to(casterWrappers[index], {
-        opacity: 1,
-        duration: .45,
-        ease: "power4.out"
-    }, "+=.25");
+        if (caster.pronouns != ""){
+            html += `<div class="pronouns">${caster.pronouns}</div>`;
+        }
+        html += `</span></div>`;
+    }
+    document.querySelector(".match-info-body").innerHTML = html;
 }
 
-function showComm(index, show){
-    casterWrappers[index].style.display = show ? "block" : "none";
+function changeCasterScrollable(casters){
+    let html = '';
+    const scrollable1 = document.getElementById('caster-scrollable-1');
+    const scrollable2 = document.getElementById('caster-scrollable-2');
+    
+    for (let i = 0; i < casters.length; i++){
+        const caster = casters[i];
+        html += '&nbsp&nbsp/&nbsp&nbsp';
+        html += `${caster.name}`;
+        if (caster.twitter != "@"){
+            html += `&nbsp•&nbsp${caster.twitter}`;
+        }
+        if (caster.pronouns != ""){
+            html += `&nbsp•&nbsp<span class="pronouns">${caster.pronouns}</span>`;
+        }
+    }
+
+    scrollable1.innerHTML = html;
+    scrollable2.innerHTML = html;
+
+    const scroller = document.getElementById('caster-scroller');
+    castersScrollTl.restart();
+    castersScrollTl.clear();
+    let width = scrollable1.scrollWidth;
+    if (width < 275){
+        scrollable1.style.marginRight = `${275-width}px`;
+        width = 275;
+    } else {
+        scrollable1.style.marginRight = '0px';
+    }
+    console.log(width);
+    castersScrollTl.to(scroller, {
+        duration: width / 17,
+        ease: "none",
+        x: -width,
+        repeat: -1
+    });
 }
