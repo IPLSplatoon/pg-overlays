@@ -1,10 +1,10 @@
-import { activeRound } from '../helpers/replicants.js';
-import { mapNameToImagePath } from "../helpers/constants.js";
+import { activeRound, assetPaths } from '../helpers/replicants.js';
+import { getStageImagePath } from '../helpers/stages.js';
 import { addDots } from '../helpers/misc.js';
 import gsap from '../../../node_modules/gsap/all.js';
 
 
-NodeCG.waitForReplicants(activeRound).then(() => {
+NodeCG.waitForReplicants(activeRound, assetPaths).then(() => {
     activeRound.on("change", (newValue, oldValue) => {
         if (oldValue === undefined){
             setStages(newValue);
@@ -196,7 +196,7 @@ function getStageElement(map, mode, numGames){
     element.classList.add("content-box", "stage");
 
     const image = document.createElement("img");
-    image.src = `./assets/stages/${mapNameToImagePath[map]}`;
+    image.src = getStageImagePath(map);
     element.appendChild(image);
 
     const winner = document.createElement("div");

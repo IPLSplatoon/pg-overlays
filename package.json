@@ -19,7 +19,7 @@
     "nodecg-bundle"
   ],
   "nodecg": {
-    "compatibleRange": "^1.1.1",
+    "compatibleRange": "^1.1.1 || ^2.0.0",
     "graphics": [
       {
         "file": "main.html",
