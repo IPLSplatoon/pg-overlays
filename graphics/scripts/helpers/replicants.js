@@ -9,3 +9,4 @@ export const mainFlavorText = nodecg.Replicant('mainFlavorText', DASHBOARD_BUNDL
 export const nextRoundTime = nodecg.Replicant('nextRoundStartTime', DASHBOARD_BUNDLE_NAME);
 export const scoreboardData = nodecg.Replicant('scoreboardData', DASHBOARD_BUNDLE_NAME);
 export const nextRound = nodecg.Replicant('nextRound', DASHBOARD_BUNDLE_NAME);
+export const assetPaths = nodecg.Replicant('assetPaths', DASHBOARD_BUNDLE_NAME);

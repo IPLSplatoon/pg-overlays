@@ -1,7 +1,7 @@
 import gsap from '../../../node_modules/gsap/all.js';
-import { mainFlavorText, nextRoundTime, nextRound } from '../helpers/replicants.js';
+import { mainFlavorText, nextRoundTime, nextRound, assetPaths } from '../helpers/replicants.js';
 import { addDots } from '../helpers/misc.js';
-import { mapNameToImagePath } from "../helpers/constants.js";
+import { getStageImagePath } from '../helpers/stages.js';
 
 mainFlavorText.on('change', newValue => {
     changeMainFlavorText(newValue)
@@ -30,7 +30,7 @@ NodeCG.waitForReplicants(nextRoundTime).then(() => {
     setInterval(updateTimer, 15000); //every 15 seconds
 });
 
-NodeCG.waitForReplicants(nextRound).then(() => {
+NodeCG.waitForReplicants(nextRound, assetPaths).then(() => {
     setNextRound(nextRound.value);
 });
 
@@ -217,7 +217,7 @@ function getNextMatchMapElement(map, mode){
 
     if (stageMode.innerText !== ""){
         stage.appendChild(stageMode);
-        stage.style.background = `url('./assets/stages/${mapNameToImagePath[map]}')`;
+        stage.style.background = `url('${getStageImagePath(map)}')`;
     } else { //assume counterpick
         stage.style.fontSize = "28px"
         stage.innerHTML = "&nbsp;Counterpick";
